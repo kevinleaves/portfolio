@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import './globals.css'
 
 export const metadata = {
@@ -11,8 +12,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang='en'>
+      <body className='flex flex-col'>
+        <nav className='flex h-12 gap-10 border-2 border-solid border-white'>
+          <Link href='/' scroll>
+            Home
+          </Link>
+          <Link href='/about'>About Me</Link>
+          <Link href='/'>Skills</Link>
+          <Link href='/'>Work</Link>
+          <Link href='/projects'>Projects</Link>
+        </nav>
+        {children}
+      </body>
     </html>
   )
 }
