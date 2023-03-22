@@ -1,5 +1,6 @@
 const projects = [
   {
+    id: 1,
     name: 'Mecca',
     role: 'Frontend',
     description: 'A modern redesign of an e-commerce website.',
@@ -7,6 +8,7 @@ const projects = [
     link: 'https://github.com/RFP-Coco/Mecca',
   },
   {
+    id: 2,
     name: 'Incredible',
     role: 'Backend',
     description:
@@ -24,6 +26,7 @@ const projects = [
     link: 'https://github.com/Cheeto-Puffs/sdc-products-api',
   },
   {
+    id: 3,
     name: 'Soundclash',
     role: 'Fullstack',
     description:
@@ -32,8 +35,9 @@ const projects = [
     link: 'https://github.com/kevinleaves/Soundclash',
   },
   {
+    id: 4,
     name: 'Harper',
-    stack: 'Fullstack',
+    role: 'Fullstack',
     description:
       'A streaming platform where artists can connect with their fans.',
     stack: [

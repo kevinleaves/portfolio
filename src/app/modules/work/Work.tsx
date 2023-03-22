@@ -6,7 +6,7 @@ export default function Work() {
       {work}
       <ul>
         {projects?.map((project) => (
-          <Project project={project} />
+          <Project key={project.id} project={project} />
         ))}
       </ul>
     </div>
