@@ -1,4 +1,4 @@
-type ProjectProps = {
+type Props = {
   project: {
     name: string
     role: string
@@ -8,7 +8,7 @@ type ProjectProps = {
   }
 }
 
-export default function Project({ project }: ProjectProps) {
+export default function Project({ project }: Props) {
   const { name, role, description, stack, link } = project
   return (
     <div>

@@ -1,4 +1,4 @@
-export const projects = [
+const projects = [
   {
     name: 'Mecca',
     role: 'Frontend',
@@ -47,3 +47,5 @@ export const projects = [
     link: 'https://github.com/hrTrubbish/Brooks-Garth',
   },
 ]
+
+export default projects

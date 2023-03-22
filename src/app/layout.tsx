@@ -13,18 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className='flex flex-col'>
-        <nav className='flex h-12 gap-10 border-2 border-solid border-white'>
-          <Link href='/' scroll>
-            Home
-          </Link>
-          <Link href='/about'>About Me</Link>
-          <Link href='/'>Skills</Link>
-          <Link href='/'>Work</Link>
-          <Link href='/projects'>Projects</Link>
-        </nav>
-        {children}
-      </body>
+      <body className='flex flex-col'>{children}</body>
     </html>
   )
 }
