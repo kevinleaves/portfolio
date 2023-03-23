@@ -2,7 +2,7 @@ import { Project, projects } from '@modules/work'
 export default function Work() {
   const work = 'Work shown here'
   return (
-    <div id='work'>
+    <div id='work' className='border-b-2 border-solid border-red-400'>
       {work}
       <ul>
         {projects?.map((project) => (
