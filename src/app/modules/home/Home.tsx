@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 
 const titles = [
   'software engineer',
@@ -36,23 +36,31 @@ export default function Home() {
   const initialState = { index: 0 }
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const changeTitle = () => {
-    setTimeout(() => {
-      dispatch({ type: 'increment' })
-    }, 2000)
+  useEffect(() => {
+    const changeTitle = () => {
+      setTimeout(() => {
+        dispatch({ type: 'increment' })
+      }, 3000)
 
-    if (state.index >= titles.length) {
-      dispatch({ type: 'reset' })
+      if (state.index >= titles.length) {
+        dispatch({ type: 'reset' })
+      }
     }
-  }
-  changeTitle()
+    changeTitle()
+  }, [state.index])
 
+  const title = titles[state.index]
   return (
     <div className=''>
       <div>{state.index}</div>
       <div className='flex gap-1'>
         <p>{`hi, my name is kevin le and i am a`}</p>
-        <p>{titles[state.index]}</p>
+        <p
+          key={title}
+          className='animate-pulsemore transition duration-1000 ease-in-out'
+        >
+          {title}
+        </p>
       </div>
     </div>
   )
