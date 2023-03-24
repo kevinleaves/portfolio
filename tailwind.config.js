@@ -14,6 +14,12 @@ module.exports = {
         },
       },
     },
+    colors: {
+      darkPrimary: '#2C3333',
+      darkSecondary: '#395B64',
+      lightPrimary: '#E7F6F2',
+      lightSecondary: '#A5C9CA',
+    },
   },
   plugins: [],
 }

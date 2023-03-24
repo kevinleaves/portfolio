@@ -40,7 +40,7 @@ export default function Project({ project }: Props) {
             alt={name}
             borderRadius='lg'
           />
-          <a href={link} target='_blank'>
+          <a href={link} target='blank'>
             github
           </a>
           <Stack my='5'>

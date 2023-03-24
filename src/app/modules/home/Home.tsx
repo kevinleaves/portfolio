@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
+import Image from 'next/image'
 
 const titles = [
   'software engineer',
@@ -26,7 +27,6 @@ const reducer = (state: State, action: Action) => {
         ...state,
         index: 0,
       }
-
     default:
       return state
   }
@@ -50,11 +50,20 @@ export default function Home() {
   }, [state.index])
 
   const title = titles[state.index]
+
   return (
     <div className=''>
-      <div>{state.index}</div>
-      <div className='flex gap-1'>
-        <p>{`hi, my name is kevin le and i am a`}</p>
+      <div className='flex items-end gap-2 text-4xl'>
+        <p className='flex items-end gap-2'>
+          hi
+          <Image
+            src='/images/logos/9434-bird-wave.png'
+            alt='birdwave'
+            height={50}
+            width={50}
+          />
+          , my name is kevin le and i am a
+        </p>
         <p
           key={title}
           className='animate-pulsemore transition duration-1000 ease-in-out'
