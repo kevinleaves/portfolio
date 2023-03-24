@@ -20,8 +20,8 @@ export default function App() {
     <ChakraProvider resetCSS={true}>
       <div className='flex flex-col gap-5 '>
         <Navbar refs={refs} />
-        <Work workRef={refs.work} />
         <Home />
+        <Work workRef={refs.work} />
         <About aboutRef={refs.about} />
         <Skills skillsRef={refs.skills} />
         <Contact contactRef={refs.contact} />

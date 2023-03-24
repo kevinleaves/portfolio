@@ -14,7 +14,7 @@ export default function Work({ workRef }: Props) {
       className='justify-center-center h-screen border-b-2 border-solid border-red-400 md:max-w-[90%]'
     >
       {work}
-      <ul className='flex flex-col md:max-w-[90%] md:flex-row'>
+      <ul className='flex flex-col md:flex-row'>
         {projects?.map((project) => (
           <Project key={project.id} project={project} />
         ))}

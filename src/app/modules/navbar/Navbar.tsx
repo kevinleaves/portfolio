@@ -40,10 +40,8 @@ export default function Navbar({ refs }: Props) {
 }
 
 const handleScroll = (ref: RefObject<null>) => {
-  console.log(ref, 'ref')
-  window.scrollTo({
-    top: ref.offsetTop,
-    left: 0,
+  ref?.scrollIntoView({
+    block: 'start',
     behavior: 'smooth',
   })
 }

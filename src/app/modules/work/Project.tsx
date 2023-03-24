@@ -7,6 +7,7 @@ import {
   CardFooter,
   Image,
   Stack,
+  Badge,
 } from '@chakra-ui/react'
 
 type Props = {
@@ -48,12 +49,11 @@ export default function Project({ project }: Props) {
           </Stack>
         </CardBody>
         <CardFooter>
-          <p
-            className='flex flex-wrap
-          '
-          >
-            {stack}
-          </p>
+          <ul className='flex flex-wrap gap-3'>
+            {stack.map((technology, index) => (
+              <Badge key={index}>{technology}</Badge>
+            ))}
+          </ul>
         </CardFooter>
       </Card>
     </motion.div>
