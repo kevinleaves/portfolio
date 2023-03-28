@@ -13,12 +13,12 @@ module.exports = {
           '75%': { opacity: 0.25 },
         },
       },
-    },
-    colors: {
-      darkPrimary: '#2C3333',
-      darkSecondary: '#395B64',
-      lightPrimary: '#E7F6F2',
-      lightSecondary: '#A5C9CA',
+      colors: {
+        darkPrimary: '#323643',
+        darkSecondary: '#606470',
+        lightPrimary: '#f7f7f7',
+        lightSecondary: '#93deff',
+      },
     },
   },
   plugins: [],
