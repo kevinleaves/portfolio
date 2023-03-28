@@ -1,24 +1,23 @@
 import React, { RefObject } from 'react'
 
 type Props = {
-  workRef: RefObject<HTMLDivElement>
+  workRef: RefObject<HTMLElement>
 }
 
 import { Project, projects } from '@modules/work'
 export default function Work({ workRef }: Props) {
-  const work = 'Work shown here'
   return (
-    <div
+    <section
       ref={workRef}
       id='work'
-      className='justify-center-center h-screen border-b-2 border-solid border-red-400 md:max-w-[90%]'
+      className='flex flex-col items-center justify-center md:max-w-[100%]'
     >
-      {work}
-      <ul className='flex flex-col md:flex-row'>
+      <h2 className='mb-3 text-3xl hover:text-lightSecondary'>projects</h2>
+      <ul className='flex flex-col flex-wrap gap-5 md:flex-row md:justify-center'>
         {projects?.map((project) => (
           <Project key={project.id} project={project} />
         ))}
       </ul>
-    </div>
+    </section>
   )
 }

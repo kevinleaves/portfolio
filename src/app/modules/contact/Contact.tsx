@@ -1,16 +1,16 @@
 import React, { RefObject } from 'react'
 
 type Props = {
-  contactRef: RefObject<HTMLDivElement>
+  contactRef: RefObject<HTMLElement>
 }
 
 export default function Contact({ contactRef }: Props) {
   const contact = 'Contact me @'
 
   return (
-    <div ref={contactRef} id='contact'>
+    <section ref={contactRef} id='contact'>
       {contact}
       <div className='h-screen'>BLAH</div>
-    </div>
+    </section>
   )
 }

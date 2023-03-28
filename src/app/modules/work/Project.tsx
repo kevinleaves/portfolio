@@ -4,6 +4,7 @@ import {
   Card,
   CardHeader,
   CardBody,
+  Divider,
   CardFooter,
   Image,
   Stack,
@@ -29,10 +30,11 @@ export default function Project({ project }: Props) {
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
-      <Card className='max-w-sm'>
+      <Card className='max-w-sm' size='sm'>
         <CardHeader>
           <p>{name}</p>
         </CardHeader>
+        <Divider borderColor={'#A5C9CA'} />
         <CardBody>
           <Image
             boxSize={'25rem'}
@@ -48,6 +50,7 @@ export default function Project({ project }: Props) {
             <p>{description}</p>
           </Stack>
         </CardBody>
+        <Divider borderColor={'#A5C9CA'} />
         <CardFooter>
           <ul className='flex flex-wrap gap-3'>
             {stack.map((technology, index) => (

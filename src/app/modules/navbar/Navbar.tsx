@@ -31,16 +31,16 @@ type Social = {
 
 const socials: Social = {
   linkedin: {
-    logo: '/images/logos/github-mark.png',
+    logo: '/images/logos/linkedin-black.png',
     link: 'https://www.linkedin.com/in/kevinleaves/',
   },
   github: {
-    logo: '/images/logos/linkedin-black.png',
+    logo: '/images/logos/github-mark.png',
     link: 'https://github.com/kevinleaves',
   },
 }
 
-export default function Navbar({ refs }: Props) {
+export default function Navbar({ refs }: Props): JSX.Element {
   return (
     <header className='sticky top-0 z-50 flex justify-between text-2xl'>
       <Link href={'/'}>

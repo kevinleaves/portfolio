@@ -32,7 +32,7 @@ const reducer = (state: State, action: Action) => {
   }
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const initialState = { index: 0 }
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -52,25 +52,20 @@ export default function Home() {
   const title = titles[state.index]
 
   return (
-    <div className=''>
-      <div className='flex items-end gap-2 text-4xl'>
-        <p className='flex items-end gap-2'>
-          hi
-          <Image
-            src='/images/logos/9434-bird-wave.png'
-            alt='birdwave'
-            height={50}
-            width={50}
-          />
-          , my name is kevin le and i am a
-        </p>
-        <p
-          key={title}
-          className='animate-pulsemore transition duration-1000 ease-in-out'
-        >
-          {title}
-        </p>
-      </div>
-    </div>
+    <section className='flex flex-col gap-2 text-3xl md:flex-row md:items-end'>
+      <h5 className='flex items-start gap-2 md:items-end'>
+        hi, my name is
+        <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
+          Kevin Le.
+        </h1>
+        and i am a
+      </h5>
+      <h3
+        key={title}
+        className='animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
+      >
+        {title}
+      </h3>
+    </section>
   )
 }
