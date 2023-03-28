@@ -4,6 +4,8 @@ import Image from 'next/image'
 
 type Props = {
   refs: {
+    navbar: RefObject<null>
+    home: RefObject<null>
     about: RefObject<null>
     work: RefObject<null>
     skills: RefObject<null>
@@ -42,13 +44,18 @@ const socials: Social = {
 
 export default function Navbar({ refs }: Props): JSX.Element {
   return (
-    <header className='sticky top-0 z-50 flex justify-between text-2xl'>
+    <header
+      className='sticky top-0 z-50 flex justify-between border-b-2 border-solid border-gray-200 pb-2 text-2xl backdrop-blur-md  backdrop-opacity-95 backdrop-filter'
+      ref={refs.navbar}
+      id='navbar'
+    >
       <Link href={'/'}>
         <Image
           src='/images/logos/monkey.png'
           width={40}
           height={40}
           alt='header-icon'
+          onClick={() => handleScroll(refs.home.current)}
         />
       </Link>
       <nav className='flex items-end gap-2'>
@@ -57,6 +64,7 @@ export default function Navbar({ refs }: Props): JSX.Element {
             <Link
               key={key}
               href={link}
+              className='hover:text-indigo-500'
               onClick={() => handleScroll(refs[key].current)}
             >
               {key}
@@ -75,9 +83,16 @@ export default function Navbar({ refs }: Props): JSX.Element {
   )
 }
 
-const handleScroll = (ref: RefObject<null>) => {
-  ref?.scrollIntoView({
-    block: 'start',
-    behavior: 'smooth',
-  })
+const handleScroll = (ref: RefObject<null>, navbarRef: RefObject<null>) => {
+  if (ref.id === 'home') {
+    ref?.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    })
+  } else {
+    ref?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    })
+  }
 }

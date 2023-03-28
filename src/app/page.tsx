@@ -10,6 +10,8 @@ import { useRef } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 export default function App() {
   const refs = {
+    navbar: useRef(null),
+    home: useRef(null),
     about: useRef(null),
     work: useRef(null),
     skills: useRef(null),
@@ -20,7 +22,7 @@ export default function App() {
     <ChakraProvider resetCSS={true}>
       <div className='flex flex-col gap-5 '>
         <Navbar refs={refs} />
-        <Home />
+        <Home homeRef={refs.home} />
         <About aboutRef={refs.about} />
         <Work workRef={refs.work} />
         <Skills skillsRef={refs.skills} />

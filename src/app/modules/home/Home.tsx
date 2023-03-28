@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, RefObject } from 'react'
 import Image from 'next/image'
 
 const titles = [
@@ -32,7 +32,11 @@ const reducer = (state: State, action: Action) => {
   }
 }
 
-export default function Home(): JSX.Element {
+type Props = {
+  homeRef: RefObject<HTMLElement>
+}
+
+export default function Home({ homeRef }: Props): JSX.Element {
   const initialState = { index: 0 }
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -52,7 +56,11 @@ export default function Home(): JSX.Element {
   const title = titles[state.index]
 
   return (
-    <section className='flex flex-col gap-2 text-3xl md:flex-row md:items-end'>
+    <section
+      ref={homeRef}
+      className='flex flex-col gap-2 text-3xl md:flex-row md:items-end'
+      id='home'
+    >
       <h5 className='flex items-start gap-2 md:items-end'>
         hi, my name is
         <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
