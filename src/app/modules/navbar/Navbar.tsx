@@ -86,12 +86,12 @@ export default function Navbar({ refs }: Props): JSX.Element {
 const handleScroll = (ref: RefObject<null>, navbarRef: RefObject<null>) => {
   if (ref.id === 'home') {
     ref?.scrollIntoView({
-      block: 'center',
+      block: 'start',
       behavior: 'smooth',
     })
   } else {
     ref?.scrollIntoView({
-      block: 'start',
+      block: 'center',
       behavior: 'smooth',
     })
   }

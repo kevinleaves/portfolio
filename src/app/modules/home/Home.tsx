@@ -4,7 +4,6 @@ import Image from 'next/image'
 const titles = [
   'software engineer',
   'fullstack engineer',
-  'ui/ux designer',
   'frontend engineer',
   'backend engineer',
 ]
@@ -58,22 +57,24 @@ export default function Home({ homeRef }: Props): JSX.Element {
   return (
     <section
       ref={homeRef}
-      className='flex flex-col gap-2 text-3xl md:flex-row md:items-end'
+      className='grid h-[100vh] w-[100vw] place-content-center gap-2 text-3xl'
       id='home'
     >
-      <h5 className='flex items-start gap-2 md:items-end'>
-        hi, my name is
-        <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
-          Kevin Le.
-        </h1>
-        and i am a
-      </h5>
-      <h3
-        key={title}
-        className='animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
-      >
-        {title}
-      </h3>
+      <div className='place-items-center gap-2 '>
+        <h5 className='items-start gap-2'>
+          hi, my name is
+          <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
+            Kevin Le.
+          </h1>
+          and i am a
+        </h5>
+        <h3
+          key={title}
+          className='animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
+        >
+          {title}
+        </h3>
+      </div>
     </section>
   )
 }

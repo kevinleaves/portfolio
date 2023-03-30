@@ -1,4 +1,6 @@
 import React, { RefObject } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
   aboutRef: RefObject<HTMLElement>
@@ -6,36 +8,62 @@ type Props = {
 
 export default function About({ aboutRef }: Props) {
   return (
-    <section ref={aboutRef} className='' id='about'>
-      <h2>ABOUT ME</h2>
-      <p>
-        My journey into the world of software engineering has been both
-        challenging and rewarding. <br></br>
-        Growing up, I didn't think I had the necessary skills to be a good
-        engineer, so I pivoted out of my Computer Engineering major and into
-        Economics.
+    <section
+      ref={aboutRef}
+      className='flex flex-col-reverse place-items-center gap-4 px-2 md:grid md:grid-cols-2'
+      id='about'
+    >
+      <p className='w-9/12 md:w-2/6 md:place-self-end'>
+        Hey there!
+        <br></br>
+        <br></br>
+        My name is Kevin, and I am a well versed professional with a background
+        in Payroll, HRIS Software, and software engineering. I graduated from
+        the University of California, Irvine with a Bachelor's degree in
+        Economics in 2017 and worked as a Payroll Analyst in the software
+        industry until 2022.
+        <br></br>
+        <br></br>
+        From the moment I started my professional career, I knew that I wanted
+        to explore the world of programming. I got my start by writing VBA and
+        Python scripts to automate tasks in my previous jobs.
+        <br></br>
+        <br></br>
+        After teaching myself the basics of programming in my spare time, I
+        decided to enroll in{' '}
+        <a
+          className=' text-purple-500 hover:text-purple-900'
+          href='https://www.hackreactor.com/'
+        >
+          Hack Reactor
+        </a>{' '}
+        to further develop my software engineering skills.
+        <br></br>
+        <br></br>
+        If you'd like to see the projects I've worked on please find my github{' '}
+        <a
+          href='https://github.com/kevinleaves'
+          className=' text-purple-500 hover:text-purple-900'
+          target='_blank'
+        >
+          here
+        </a>
+        , and if you'd like to hire me you can find my resume{' '}
+        <Link
+          href='/docs/KevinLe_Resume.pdf'
+          download='/docs/KevinLe_Resume.pdf'
+          className=' text-purple-500 hover:text-purple-900'
+          target='_blank'
+        >
+          here.
+        </Link>
       </p>
-      <p>
-        Programming was always on the back of my mind though. In my prior career
-        in Payroll Software, I would find any way I could to use programming to
-        help boost team efficiency. I developed small automations using Python
-        and VBA for the previous teams I've been on, but I knew I wanted to take
-        things further than that. Through meaningful effort and a lot of
-        curiosity, I developed a deep interest in software development and now
-        love nothing more than working collaboratively with a team to tackle
-        complex problems.
-      </p>
-      <p>
-        This path of learning software engineering is one of the most rewarding
-        paths I've been on thus far. I am constantly learning and expanding my
-        skills, and am always on the lookout for ways to use programming to
-        craft innovative solutions for problems big or small.
-      </p>
-      <p>
-        If you're looking for a driven full-stack engineer to join your team, or
-        simply want to chat about tech, basketball, or anything at all, I would
-        love to connect with you. Please feel free to reach out.`
-      </p>
+      <Image
+        src='/images/misc/kevin.jpeg'
+        height={500}
+        width={500}
+        className='place-self-start md:max-w-sm'
+      />
     </section>
   )
 }
