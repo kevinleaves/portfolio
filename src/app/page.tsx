@@ -4,6 +4,7 @@ import { Navbar } from '@modules/navbar'
 import { Home } from '@modules/home'
 import { Work } from '@modules/work'
 import { About } from '@modules/about'
+import { Fun } from '@modules/fun'
 import { Contact } from '@modules/contact'
 import { Skills } from '@modules/skills'
 import { useRef } from 'react'
@@ -25,6 +26,7 @@ export default function App() {
         <Home homeRef={refs.home} />
         <About aboutRef={refs.about} />
         <Work workRef={refs.work} />
+        <Fun />
         {/* <Skills skillsRef={refs.skills} /> */}
         {/* <Contact contactRef={refs.contact} /> */}
       </div>
