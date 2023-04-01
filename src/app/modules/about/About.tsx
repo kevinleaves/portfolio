@@ -10,10 +10,10 @@ export default function About({ aboutRef }: Props) {
   return (
     <section
       ref={aboutRef}
-      className='flex flex-col-reverse place-items-center gap-4 px-2 md:grid md:grid-cols-2'
+      className='flex flex-col place-items-center justify-center gap-4 px-2 md:flex-row'
       id='about'
     >
-      <p className='w-9/12 md:w-2/6 md:place-self-end'>
+      <p className='w-9/12 md:w-3/6 lg:w-1/6'>
         Hey there!
         <br></br>
         <br></br>
@@ -46,9 +46,10 @@ export default function About({ aboutRef }: Props) {
           className=' text-purple-500 hover:text-purple-900'
           target='_blank'
         >
-          here
+          here{' '}
         </a>
-        , and if you'd like to hire me you can find my resume{' '}
+        (or scrolling down a little bit more works too), and if you'd like to
+        hire me you can find my resume{' '}
         <Link
           href='/docs/KevinLe_Resume.pdf'
           download='/docs/KevinLe_Resume.pdf'
@@ -58,12 +59,15 @@ export default function About({ aboutRef }: Props) {
           here.
         </Link>
       </p>
-      <Image
-        src='/images/misc/kevin.jpeg'
-        height={500}
-        width={500}
-        className='place-self-start md:max-w-sm'
-      />
+      <div className='max-w-[95%]'>
+        <Image
+          src='/images/misc/kevin.jpeg'
+          height={500}
+          width={500}
+          className='w-full max-w-sm'
+          alt='kevin_portrait'
+        />
+      </div>
     </section>
   )
 }
