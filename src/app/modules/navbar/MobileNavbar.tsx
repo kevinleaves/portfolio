@@ -77,7 +77,6 @@ export default function MobileNavbar({
       transition={{ duration: 0.5 }}
       exit={{ x: '100%' }}
       key='mobile-menu'
-      onAnimationComplete={() => console.log('Animation completed')}
       className='fixed bottom-0 top-0 right-0 z-10 flex w-[40%] flex-col items-center gap-2 bg-lightSecondary text-darkPrimary'
     >
       <div className='flex h-20 items-center justify-center'>

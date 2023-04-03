@@ -66,6 +66,7 @@ export default function Navbar({ refs }: Props): JSX.Element {
         behavior: 'smooth',
       })
     }
+    setMenuClicked(false)
   }
 
   return (
@@ -114,9 +115,11 @@ export default function Navbar({ refs }: Props): JSX.Element {
           </nav>
         ) : null}
         {isMobile && !menuClicked ? (
-          <TfiAlignRight
-            onClick={() => setMenuClicked(!menuClicked)}
-          ></TfiAlignRight>
+          <div className='pt-2 pr-2'>
+            <TfiAlignRight
+              onClick={() => setMenuClicked(!menuClicked)}
+            ></TfiAlignRight>
+          </div>
         ) : null}
       </header>
       <AnimatePresence>

@@ -12,9 +12,7 @@ export default function Hobbies({ hobbyRef }: Props) {
       id='hobbies'
       ref={hobbyRef}
     >
-      <h2 className='mb-3 text-center text-3xl hover:text-lightSecondary'>
-        something fun
-      </h2>
+      <h2 className='mb-3 text-center text-3xl '>hobbies</h2>
       <p>
         I DJ from time to time, and I have a couple of EDM mixes on Soundcloud!
       </p>
