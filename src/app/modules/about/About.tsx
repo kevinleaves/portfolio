@@ -10,7 +10,7 @@ export default function About({ aboutRef }: Props) {
   return (
     <section
       ref={aboutRef}
-      className='flex flex-col place-items-center justify-center gap-4 px-2 md:flex-row'
+      className='flex flex-col place-items-center justify-center gap-10 px-2 md:flex-row'
       id='about'
     >
       <p className='w-9/12 md:w-3/6 lg:w-1/6'>
@@ -59,12 +59,12 @@ export default function About({ aboutRef }: Props) {
           here.
         </Link>
       </p>
-      <div className='max-w-[95%]'>
+      <div className='h-80 w-80 max-w-[95%]'>
         <Image
           src='/images/misc/kevin.jpeg'
           height={500}
           width={500}
-          className='w-full max-w-sm'
+          className='max-h-sm h-full w-full max-w-sm rounded-full object-cover'
           alt='kevin_portrait'
         />
       </div>
