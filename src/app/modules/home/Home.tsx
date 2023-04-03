@@ -70,7 +70,7 @@ export default function Home({ homeRef }: Props): JSX.Element {
         </h5>
         <h3
           key={title}
-          className='animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
+          className='z-0 animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
         >
           {title}
         </h3>
