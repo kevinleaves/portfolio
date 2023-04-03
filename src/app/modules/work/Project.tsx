@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+// import Image from 'next/image'
 
 import {
   Card,
@@ -27,12 +28,13 @@ export default function Project({ project }: Props) {
   const { name, role, description, stack, link, image } = project
   return (
     <motion.div
+      className='z-0'
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
       <Card className='max-w-sm' size='sm'>
         <CardHeader>
-          <p>{name}</p>
+          <p className='text-center font-semibold'>{name}</p>
         </CardHeader>
         <Divider borderColor={'#A5C9CA'} />
         <CardBody>
@@ -42,8 +44,12 @@ export default function Project({ project }: Props) {
             alt={name}
             borderRadius='lg'
           />
-          <a href={link} target='blank'>
-            github
+          <a href={link} target='blank' className='flex justify-center pt-6'>
+            <Image
+              src='/images/logos/github-mark.png'
+              boxSize={'2rem'}
+              alt='social_logo'
+            />
           </a>
           <Stack my='5'>
             <p className='text-sm'>{role}</p>
