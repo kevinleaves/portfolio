@@ -12,8 +12,9 @@ type Props = {
     home: RefObject<null>
     about: RefObject<null>
     work: RefObject<null>
-    skills: RefObject<null>
-    contact: RefObject<null>
+    hobbies: RefObject<null>
+    // skills: RefObject<null>
+    // contact: RefObject<null>
   }
 }
 
@@ -23,9 +24,10 @@ type Links = {
 
 const links: Links = {
   about: '/#about',
-  skills: '/#skills',
-  contact: '/#contact',
   work: '/#work',
+  hobbies: '/#hobbies',
+  // skills: '/#skills',
+  // contact: '/#contact',
 }
 
 type Social = {

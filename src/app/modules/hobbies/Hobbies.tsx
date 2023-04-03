@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import SoundCloud from './Soundcloud'
 
-export default function Fun() {
+type Props = {
+  hobbyRef: RefObject<HTMLElement>
+}
+
+export default function Hobbies({ hobbyRef }: Props) {
   return (
     <section
       className='flex flex-col items-center justify-center gap-4 py-10 px-10'
-      id='fun'
+      id='hobbies'
+      ref={hobbyRef}
     >
       <h2 className='mb-3 text-center text-3xl hover:text-lightSecondary'>
         something fun
