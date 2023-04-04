@@ -6,13 +6,13 @@ import { TfiClose } from 'react-icons/tfi'
 
 type Props = {
   refs: {
-    navbar: RefObject<null>
-    home: RefObject<null>
-    about: RefObject<null>
-    work: RefObject<null>
-    hobbies: RefObject<null>
-    // skills: RefObject<null>
-    // contact: RefObject<null>
+    navbar: RefObject<HTMLDivElement>
+    home: RefObject<HTMLDivElement>
+    about: RefObject<HTMLDivElement>
+    work: RefObject<HTMLDivElement>
+    hobbies: RefObject<HTMLDivElement>
+    // skills: RefObject<HTMLDivElement>
+    // contact: RefObject<HTMLDivElement>
   }
   setMenuClicked: (value: boolean) => void
   menuClicked: boolean
