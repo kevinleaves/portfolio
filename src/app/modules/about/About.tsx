@@ -19,7 +19,7 @@ export default function About({ aboutRef }: Props) {
         <br></br>
         My name is Kevin, and I am a well versed professional with a background
         in Payroll, HRIS Software, and software engineering. I graduated from
-        the University of California, Irvine with a Bachelor's degree in
+        the University of California, Irvine with a Bachelor&apos;s degree in
         Economics in 2017 and worked as a Payroll Analyst in the software
         industry until 2022.
         <br></br>
@@ -40,7 +40,8 @@ export default function About({ aboutRef }: Props) {
         to further develop my software engineering skills.
         <br></br>
         <br></br>
-        If you'd like to see the projects I've worked on please find my github{' '}
+        If you&apos;d like to see the projects I&apos;ve worked on please find
+        my github{' '}
         <a
           href='https://github.com/kevinleaves'
           className=' text-purple-500 hover:text-purple-900'
@@ -48,8 +49,8 @@ export default function About({ aboutRef }: Props) {
         >
           here{' '}
         </a>
-        (or scrolling down a little bit more works too), and if you'd like to
-        hire me you can find my resume{' '}
+        (or scrolling down a little bit more works too), and if you&apos;d like
+        to hire me you can find my resume{' '}
         <Link
           href='/docs/KevinLe_Resume.pdf'
           download='/docs/KevinLe_Resume.pdf'
