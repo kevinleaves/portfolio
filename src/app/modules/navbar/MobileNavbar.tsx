@@ -103,7 +103,6 @@ export default function MobileNavbar({
       })}
       <iframe
         allowTransparency='true'
-        frameborder='no'
         src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
         style={{ width: '40px', height: '40px' }}
       ></iframe>

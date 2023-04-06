@@ -1,6 +1,7 @@
 import React, { RefObject } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Resume from '@public/docs'
 
 type Props = {
   aboutRef: RefObject<HTMLElement>
@@ -14,7 +15,7 @@ export default function About({ aboutRef }: Props) {
       id='about'
     >
       <p className='w-9/12 md:w-3/6 lg:w-1/6'>
-        Hey there!
+        Hey there,
         <br></br>
         <br></br>
         My name is Kevin, and I am a well versed professional with a background
@@ -29,19 +30,15 @@ export default function About({ aboutRef }: Props) {
         Python scripts to automate tasks in my previous jobs.
         <br></br>
         <br></br>
-        After teaching myself the basics of programming in my spare time, I
-        decided to enroll in{' '}
-        <a
-          className=' text-purple-500 hover:text-purple-900'
-          href='https://www.hackreactor.com/'
-        >
-          Hack Reactor
-        </a>{' '}
-        to further develop my software engineering skills.
+        These days, I task myself with the role of using my skills to build
+        software that not only solves problems, but satiates my thirst for
+        knowledge. I love learning new tech, strengthening my current foundation
+        of knowledge, and getting good at whatever I set my mind to.
         <br></br>
         <br></br>
-        If you&apos;d like to see the projects I&apos;ve worked on please find
-        my github{' '}
+        I'm currently looking for a new Software engineering role, so if
+        you&apos;d like to see the projects I&apos;ve worked on please find my
+        github{' '}
         <a
           href='https://github.com/kevinleaves'
           className=' text-purple-500 hover:text-purple-900'
@@ -49,11 +46,11 @@ export default function About({ aboutRef }: Props) {
         >
           here{' '}
         </a>
-        (or scrolling down a little bit more works too), and if you&apos;d like
-        to hire me you can find my resume{' '}
+        (or scrolling down a little bit more works too 😁), and if you&apos;d
+        like to contact me about an opportunity, you can find my resume{' '}
         <Link
-          href='/docs/KevinLe_Resume.pdf'
-          download='/docs/KevinLe_Resume.pdf'
+          href={Resume}
+          download={Resume}
           className=' text-purple-500 hover:text-purple-900'
           target='_blank'
         >
