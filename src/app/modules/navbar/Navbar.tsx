@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { TfiAlignRight } from 'react-icons/tfi'
+import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
 import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
+import useDarkMode from 'src/app/hooks/useDarkMode'
 
 type Props = {
   refs: {
@@ -50,6 +52,7 @@ const socials: Social = {
 
 export default function Navbar({ refs }: Props): JSX.Element {
   const [menuClicked, setMenuClicked] = useState(false)
+  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode()
   const isMobile = useMediaQuery({
     query: '(max-width: 640px)',
   })
@@ -86,31 +89,43 @@ export default function Navbar({ refs }: Props): JSX.Element {
           />
         </Link>
         {!isMobile ? (
-          <nav className='flex items-end gap-2'>
-            {Object.entries(links).map(([key, link]) => {
-              return (
-                <Link
-                  key={key}
-                  href={link}
-                  className='hover:text-indigo-500'
-                  onClick={() => handleScroll(refs[key].current)}
-                >
-                  {key}
-                </Link>
-              )
-            })}
-            {Object.entries(socials).map(([key, { logo, link }]) => {
-              return (
-                <a href={link} key={key} target='blank'>
-                  <Image src={logo} height={40} width={40} alt='social_logo' />
-                </a>
-              )
-            })}
-            <iframe
-              allowTransparency='true'
-              src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-              style={{ width: '40px', height: '40px' }}
-            ></iframe>
+          <nav className='flex'>
+            <div className='flex items-end gap-2'>
+              {Object.entries(links).map(([key, link]) => {
+                return (
+                  <Link
+                    key={key}
+                    href={link}
+                    className='hover:text-indigo-500'
+                    onClick={() => handleScroll(refs[key].current)}
+                  >
+                    {key}
+                  </Link>
+                )
+              })}
+              {Object.entries(socials).map(([key, { logo, link }]) => {
+                return (
+                  <a href={link} key={key} target='blank'>
+                    <Image
+                      src={logo}
+                      height={40}
+                      width={40}
+                      alt='social_logo'
+                    />
+                  </a>
+                )
+              })}
+              <iframe
+                src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
+                style={{ width: '40px', height: '40px' }}
+              ></iframe>
+              <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
+                <WiMoonAltFirstQuarter
+                  className='h-full w-full'
+                  onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+                ></WiMoonAltFirstQuarter>
+              </div>
+            </div>
           </nav>
         ) : null}
         {isMobile && !menuClicked ? (

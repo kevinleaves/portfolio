@@ -1,8 +1,10 @@
-import React, { useState, RefObject } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { RefObject } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { TfiClose } from 'react-icons/tfi'
+import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
+import useDarkMode from 'src/app/hooks/useDarkMode'
 
 type Props = {
   refs: {
@@ -55,6 +57,8 @@ export default function MobileNavbar({
   menuClicked,
   isMobile,
 }: Props) {
+  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode()
+
   const handleScroll = (ref: RefObject<null>) => {
     if (ref.id === 'home' || isMobile) {
       ref?.scrollIntoView({
@@ -79,33 +83,40 @@ export default function MobileNavbar({
       key='mobile-menu'
       className='fixed bottom-0 top-0 right-0 z-10 flex w-[40%] flex-col items-center gap-2 bg-lightSecondary text-darkPrimary'
     >
+      <div className='h-10 w-10 rounded-full hover:bg-purple-500'>
+        <WiMoonAltFirstQuarter
+          className='h-full w-full'
+          onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+        ></WiMoonAltFirstQuarter>
+      </div>
       <div className='flex h-20 items-center justify-center'>
         <TfiClose onClick={() => setMenuClicked(!menuClicked)}></TfiClose>
       </div>
-      {Object.entries(links).map(([key, link]) => {
-        return (
-          <Link
-            key={key}
-            href={link}
-            className='hover:text-indigo-500'
-            onClick={() => handleScroll(refs[key].current)}
-          >
-            {key}
-          </Link>
-        )
-      })}
-      {Object.entries(socials).map(([key, { logo, link }]) => {
-        return (
-          <a href={link} key={key} target='blank'>
-            <Image src={logo} height={40} width={40} alt='social_logo' />
-          </a>
-        )
-      })}
-      <iframe
-        allowTransparency='true'
-        src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-        style={{ width: '40px', height: '40px' }}
-      ></iframe>
+      <nav>
+        {Object.entries(links).map(([key, link]) => {
+          return (
+            <Link
+              key={key}
+              href={link}
+              className='hover:text-indigo-500'
+              onClick={() => handleScroll(refs[key].current)}
+            >
+              {key}
+            </Link>
+          )
+        })}
+        {Object.entries(socials).map(([key, { logo, link }]) => {
+          return (
+            <a href={link} key={key} target='blank'>
+              <Image src={logo} height={40} width={40} alt='social_logo' />
+            </a>
+          )
+        })}
+        <iframe
+          src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
+          style={{ width: '40px', height: '40px' }}
+        ></iframe>
+      </nav>
     </motion.div>
   )
 }
