@@ -89,45 +89,48 @@ export default function Navbar({ refs }: Props): JSX.Element {
           />
         </Link>
 
-        <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
-          <WiMoonAltFirstQuarter
-            className='h-full w-full'
-            onClick={() => setDarkModeEnabled(!darkModeEnabled)}
-          ></WiMoonAltFirstQuarter>
-        </div>
-
         {/* desktop navbar only displays when not mobile*/}
         {!isMobile ? (
           <nav className='flex'>
             <div className='flex items-end gap-2'>
-              {Object.entries(links).map(([key, link]) => {
-                return (
-                  <Link
-                    key={key}
-                    href={link}
-                    className='hover:text-indigo-500'
-                    onClick={() => handleScroll(refs[key].current)}
-                  >
-                    {key}
-                  </Link>
-                )
-              })}
-              {Object.entries(socials).map(([key, { logo, link }]) => {
-                return (
-                  <a href={link} key={key} target='blank'>
-                    <Image
-                      src={logo}
-                      height={40}
-                      width={40}
-                      alt='social_logo'
-                    />
-                  </a>
-                )
-              })}
-              <iframe
-                src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-                style={{ width: '40px', height: '40px' }}
-              ></iframe>
+              <div className='flex gap-2'>
+                {Object.entries(links).map(([key, link]) => {
+                  return (
+                    <Link
+                      key={key}
+                      href={link}
+                      className='hover:text-indigo-500'
+                      onClick={() => handleScroll(refs[key].current)}
+                    >
+                      {key}
+                    </Link>
+                  )
+                })}
+              </div>
+              <div className='flex'>
+                {Object.entries(socials).map(([key, { logo, link }]) => {
+                  return (
+                    <a href={link} key={key} target='blank'>
+                      <Image
+                        src={logo}
+                        height={40}
+                        width={40}
+                        alt='social_logo'
+                      />
+                    </a>
+                  )
+                })}
+                <iframe
+                  src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
+                  style={{ width: '40px', height: '40px' }}
+                ></iframe>
+              </div>
+              <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
+                <WiMoonAltFirstQuarter
+                  className='h-full w-full'
+                  onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+                ></WiMoonAltFirstQuarter>
+              </div>
             </div>
           </nav>
         ) : null}
