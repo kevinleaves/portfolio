@@ -75,7 +75,7 @@ export default function Navbar({ refs }: Props): JSX.Element {
   return (
     <>
       <header
-        className='sticky top-0 z-10 flex justify-between border-b-2 border-solid border-gray-200 py-2 text-2xl backdrop-blur-md  backdrop-opacity-95 backdrop-filter'
+        className='sticky top-0 z-10 flex justify-between py-2 text-2xl backdrop-blur-md  backdrop-opacity-95 backdrop-filter'
         ref={refs.navbar}
         id='navbar'
       >
@@ -88,6 +88,15 @@ export default function Navbar({ refs }: Props): JSX.Element {
             onClick={() => handleScroll(refs.home.current)}
           />
         </Link>
+
+        <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
+          <WiMoonAltFirstQuarter
+            className='h-full w-full'
+            onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+          ></WiMoonAltFirstQuarter>
+        </div>
+
+        {/* desktop navbar only displays when not mobile*/}
         {!isMobile ? (
           <nav className='flex'>
             <div className='flex items-end gap-2'>
@@ -119,16 +128,12 @@ export default function Navbar({ refs }: Props): JSX.Element {
                 src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
                 style={{ width: '40px', height: '40px' }}
               ></iframe>
-              <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
-                <WiMoonAltFirstQuarter
-                  className='h-full w-full'
-                  onClick={() => setDarkModeEnabled(!darkModeEnabled)}
-                ></WiMoonAltFirstQuarter>
-              </div>
             </div>
           </nav>
         ) : null}
-        {isMobile && !menuClicked ? (
+
+        {/* mobile icon displays when isMobile AND menu is not showing */}
+        {isMobile ? (
           <div className='pt-2 pr-2'>
             <TfiAlignRight
               onClick={() => setMenuClicked(!menuClicked)}
@@ -136,6 +141,8 @@ export default function Navbar({ refs }: Props): JSX.Element {
           </div>
         ) : null}
       </header>
+
+      {/* mobile navbar displays when isMobile AND menu is showing */}
       <AnimatePresence>
         {isMobile && menuClicked ? (
           <MobileNavbar
