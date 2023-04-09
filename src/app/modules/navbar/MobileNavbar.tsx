@@ -81,41 +81,36 @@ export default function MobileNavbar({
       transition={{ duration: 0.5 }}
       exit={{ x: '100%' }}
       key='mobile-menu'
-      className='fixed bottom-0 top-0 right-0 z-10 flex w-[40%] flex-col items-center gap-2 bg-lightSecondary text-darkPrimary'
+      className='fixed top-[56px] right-0 z-10 flex h-[40%] w-[40%] flex-col items-center justify-center gap-2 rounded-3xl bg-lightSecondary text-darkPrimary'
     >
-      <div className='h-10 w-10 rounded-full hover:bg-purple-500'>
-        <WiMoonAltFirstQuarter
-          className='h-full w-full'
-          onClick={() => setDarkModeEnabled(!darkModeEnabled)}
-        ></WiMoonAltFirstQuarter>
-      </div>
-      <div className='flex h-20 items-center justify-center'>
-        <TfiClose onClick={() => setMenuClicked(!menuClicked)}></TfiClose>
-      </div>
-      <nav>
-        {Object.entries(links).map(([key, link]) => {
-          return (
-            <Link
-              key={key}
-              href={link}
-              className='hover:text-indigo-500'
-              onClick={() => handleScroll(refs[key].current)}
-            >
-              {key}
-            </Link>
-          )
-        })}
-        {Object.entries(socials).map(([key, { logo, link }]) => {
-          return (
-            <a href={link} key={key} target='blank'>
-              <Image src={logo} height={40} width={40} alt='social_logo' />
-            </a>
-          )
-        })}
-        <iframe
-          src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-          style={{ width: '40px', height: '40px' }}
-        ></iframe>
+      <nav className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5'>
+          {Object.entries(links).map(([key, link]) => {
+            return (
+              <Link
+                key={key}
+                href={link}
+                className='hover:text-indigo-500'
+                onClick={() => handleScroll(refs[key].current)}
+              >
+                {key}
+              </Link>
+            )
+          })}
+        </div>
+        <div className='flex flex-col gap-2'>
+          {Object.entries(socials).map(([key, { logo, link }]) => {
+            return (
+              <a href={link} key={key} target='blank'>
+                <Image src={logo} height={40} width={40} alt='social_logo' />
+              </a>
+            )
+          })}
+          <iframe
+            src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
+            style={{ width: '40px', height: '40px' }}
+          ></iframe>
+        </div>
       </nav>
     </motion.div>
   )
