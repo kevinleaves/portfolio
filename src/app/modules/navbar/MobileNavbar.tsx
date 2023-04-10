@@ -39,8 +39,6 @@ export default function MobileNavbar({
   menuClicked,
   isMobile,
 }: Props) {
-  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode()
-
   const handleScroll = (ref: RefObject<null>) => {
     if (ref.id === 'home' || isMobile) {
       ref?.scrollIntoView({

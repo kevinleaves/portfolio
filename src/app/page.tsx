@@ -10,8 +10,11 @@ import { Contact } from '@modules/contact'
 import { Skills } from '@modules/skills'
 import { useRef } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
+import useDarkMode from 'src/app/hooks/useDarkMode'
 
 export default function App() {
+  const [isDarkMode, toggleDarkMode] = useDarkMode()
+
   const refs = {
     navbar: useRef(null),
     home: useRef(null),
@@ -25,7 +28,11 @@ export default function App() {
   return (
     <ChakraProvider resetCSS={true}>
       <div className='flex h-full flex-col gap-5'>
-        <Navbar refs={refs} />
+        <Navbar
+          refs={refs}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
         <Home homeRef={refs.home} />
         <About aboutRef={refs.about} />
         <Work workRef={refs.work} />

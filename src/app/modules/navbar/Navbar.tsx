@@ -18,6 +18,8 @@ type Props = {
     // skills: RefObject<null>
     // contact: RefObject<null>
   }
+  isDarkMode: boolean
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type Links = {
@@ -32,9 +34,12 @@ const links: Links = {
   // contact: '/#contact',
 }
 
-export default function Navbar({ refs }: Props): JSX.Element {
+export default function Navbar({
+  refs,
+  isDarkMode,
+  toggleDarkMode,
+}: Props): JSX.Element {
   const [menuClicked, setMenuClicked] = useState(false)
-  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode()
   const isMobile = useMediaQuery({
     query: '(max-width: 640px)',
   })
@@ -92,7 +97,7 @@ export default function Navbar({ refs }: Props): JSX.Element {
               <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
                 <WiMoonAltFirstQuarter
                   className='h-full w-full'
-                  onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+                  onClick={() => toggleDarkMode(!isDarkMode)}
                 ></WiMoonAltFirstQuarter>
               </div>
             </div>
