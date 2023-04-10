@@ -5,6 +5,7 @@ import { Home } from '@modules/home'
 import { Work } from '@modules/work'
 import { About } from '@modules/about'
 import { Hobbies } from '@modules/hobbies'
+import { Footer } from '@modules/footer'
 import { Contact } from '@modules/contact'
 import { Skills } from '@modules/skills'
 import { useRef } from 'react'
@@ -31,6 +32,7 @@ export default function App() {
         <Hobbies hobbyRef={refs.hobbies} />
         {/* <Skills skillsRef={refs.skills} /> */}
         {/* <Contact contactRef={refs.contact} /> */}
+        <Footer />
       </div>
     </ChakraProvider>
   )
