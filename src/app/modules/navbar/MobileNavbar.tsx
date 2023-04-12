@@ -39,18 +39,21 @@ export default function MobileNavbar({
   menuClicked,
   isMobile,
 }: Props) {
-  const handleScroll = (ref: RefObject<null>) => {
-    if (ref.id === 'home' || isMobile) {
-      ref?.scrollIntoView({
+  const handleScroll = (ref: RefObject<null>, link: string) => {
+    if (ref?.current?.id === 'home' || isMobile) {
+      ref?.current?.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
       })
     } else {
-      ref?.scrollIntoView({
+      ref?.current?.scrollIntoView({
         block: 'center',
         behavior: 'smooth',
       })
     }
+    setTimeout(() => {
+      window.location.href = link
+    }, 500) // navigate to link after 0.5 seconds
     setMenuClicked(false)
   }
 
@@ -71,7 +74,10 @@ export default function MobileNavbar({
                 key={key}
                 href={link}
                 className='hover:text-indigo-500'
-                onClick={() => handleScroll(refs[key].current)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleScroll(refs[key], link)
+                }}
               >
                 {key}
               </Link>

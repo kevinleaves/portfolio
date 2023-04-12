@@ -21,8 +21,6 @@ export default function App() {
     about: useRef(null),
     work: useRef(null),
     hobbies: useRef(null),
-    // skills: useRef(null),
-    // contact: useRef(null),
   }
 
   return (
@@ -37,8 +35,6 @@ export default function App() {
         <About aboutRef={refs.about} />
         <Work workRef={refs.work} />
         <Hobbies hobbyRef={refs.hobbies} />
-        {/* <Skills skillsRef={refs.skills} /> */}
-        {/* <Contact contactRef={refs.contact} /> */}
         <Footer />
       </div>
     </ChakraProvider>

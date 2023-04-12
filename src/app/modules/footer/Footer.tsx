@@ -21,7 +21,7 @@ export default function Footer() {
   }
 
   return (
-    <section>
+    <section id='footer'>
       <div className='flex h-32 justify-center gap-5'>
         {Object.entries(socials).map(([key, { logo, link }]) => {
           return (

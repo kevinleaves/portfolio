@@ -1,12 +1,11 @@
 import React, { useState, RefObject } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { TfiAlignRight } from 'react-icons/tfi'
 import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
 import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
-import useDarkMode from 'src/app/hooks/useDarkMode'
 
 type Props = {
   refs: {
@@ -15,8 +14,6 @@ type Props = {
     about: RefObject<null>
     work: RefObject<null>
     hobbies: RefObject<null>
-    // skills: RefObject<null>
-    // contact: RefObject<null>
   }
   isDarkMode: boolean
   toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
@@ -30,8 +27,6 @@ const links: Links = {
   about: '/#about',
   work: '/#work',
   hobbies: '/#hobbies',
-  // skills: '/#skills',
-  // contact: '/#contact',
 }
 
 export default function Navbar({
@@ -44,8 +39,8 @@ export default function Navbar({
     query: '(max-width: 640px)',
   })
 
-  const handleScroll = (ref: RefObject<null>, navbarRef: RefObject<null>) => {
-    if (ref.id === 'home') {
+  const handleScroll = (ref: RefObject<HTMLDivElement>, link: string) => {
+    if (ref.id === 'home' || isMobile) {
       ref?.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
@@ -56,13 +51,16 @@ export default function Navbar({
         behavior: 'smooth',
       })
     }
+    // setTimeout(() => {
+    //   window.location.href = link
+    // }, 700) // navigate to link after 0.5 seconds
     setMenuClicked(false)
   }
 
   return (
     <>
       <header
-        className='sticky top-0 z-10 flex justify-between py-2 text-2xl backdrop-blur-md  backdrop-opacity-95 backdrop-filter'
+        className='sticky top-0 z-10 flex justify-between py-2 text-2xl backdrop-blur-md backdrop-opacity-95 backdrop-filter'
         ref={refs.navbar}
         id='navbar'
       >
@@ -72,7 +70,10 @@ export default function Navbar({
             width={40}
             height={40}
             alt='header-icon'
-            onClick={() => handleScroll(refs.home.current)}
+            onClick={(e) => {
+              e.preventDefault()
+              handleScroll(refs.home.current, '/')
+            }}
           />
         </Link>
 
@@ -87,7 +88,10 @@ export default function Navbar({
                       key={key}
                       href={link}
                       className='hover:text-indigo-500'
-                      onClick={() => handleScroll(refs[key].current)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleScroll(refs[key].current, link)
+                      }}
                     >
                       {key}
                     </Link>
