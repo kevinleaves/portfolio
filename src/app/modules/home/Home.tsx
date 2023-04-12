@@ -57,17 +57,17 @@ export default function Home({ homeRef }: Props): JSX.Element {
   return (
     <section
       ref={homeRef}
-      className='grid h-[100vh] w-[100vw] place-content-center gap-2 text-3xl'
+      className='grid h-[50vh] w-[100vw] place-content-center gap-2 text-3xl md:h-[100vh]'
       id='home'
     >
       <div className='place-items-center gap-2 '>
-        <h5 className='items-start gap-2'>
+        <h1 className='items-start gap-2'>
           hi, my name is
-          <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
+          <p className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-extrabold text-transparent'>
             Kevin Le.
-          </h1>
+          </p>
           and i am a
-        </h5>
+        </h1>
         <h3
           key={title}
           className='z-0 animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'

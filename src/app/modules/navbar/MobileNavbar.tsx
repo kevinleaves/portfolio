@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { TfiClose } from 'react-icons/tfi'
 import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
-import useDarkMode from 'src/app/hooks/useDarkMode'
 
 type Props = {
   refs: {
@@ -19,6 +18,8 @@ type Props = {
   setMenuClicked: (value: boolean) => void
   menuClicked: boolean
   isMobile: boolean
+  isDarkMode: boolean
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type Links = {
@@ -33,44 +34,29 @@ const links: Links = {
   // contact: '/#contact',
 }
 
-type Social = {
-  [key: string]: {
-    logo: string
-    link: string
-  }
-}
-
-const socials: Social = {
-  linkedin: {
-    logo: '/images/logos/linkedin-black.png',
-    link: 'https://www.linkedin.com/in/kevinleaves/',
-  },
-  github: {
-    logo: '/images/logos/github-mark.png',
-    link: 'https://github.com/kevinleaves',
-  },
-}
-
 export default function MobileNavbar({
   refs,
   setMenuClicked,
   menuClicked,
   isMobile,
+  isDarkMode,
+  toggleDarkMode,
 }: Props) {
-  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode()
-
-  const handleScroll = (ref: RefObject<null>) => {
-    if (ref.id === 'home' || isMobile) {
-      ref?.scrollIntoView({
+  const handleScroll = (ref: RefObject<null>, link: string) => {
+    if (ref?.current?.id === 'home' || isMobile) {
+      ref?.current?.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
       })
     } else {
-      ref?.scrollIntoView({
+      ref?.current?.scrollIntoView({
         block: 'center',
         behavior: 'smooth',
       })
     }
+    setTimeout(() => {
+      window.location.href = link
+    }, 500) // navigate to link after 0.5 seconds
     setMenuClicked(false)
   }
 
@@ -85,31 +71,30 @@ export default function MobileNavbar({
     >
       <nav className='flex flex-col gap-5'>
         <div className='flex flex-col gap-5'>
+          <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
+            <WiMoonAltFirstQuarter
+              className='h-full w-full'
+              onClick={() => {
+                setMenuClicked(false)
+                toggleDarkMode(!isDarkMode)
+              }}
+            ></WiMoonAltFirstQuarter>
+          </div>
           {Object.entries(links).map(([key, link]) => {
             return (
               <Link
                 key={key}
                 href={link}
                 className='hover:text-indigo-500'
-                onClick={() => handleScroll(refs[key].current)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleScroll(refs[key], link)
+                }}
               >
                 {key}
               </Link>
             )
           })}
-        </div>
-        <div className='flex flex-col gap-2'>
-          {Object.entries(socials).map(([key, { logo, link }]) => {
-            return (
-              <a href={link} key={key} target='blank'>
-                <Image src={logo} height={40} width={40} alt='social_logo' />
-              </a>
-            )
-          })}
-          <iframe
-            src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-            style={{ width: '40px', height: '40px' }}
-          ></iframe>
         </div>
       </nav>
     </motion.div>
