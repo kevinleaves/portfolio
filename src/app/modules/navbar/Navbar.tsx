@@ -126,6 +126,8 @@ export default function Navbar({
             menuClicked={menuClicked}
             setMenuClicked={setMenuClicked}
             isMobile={isMobile}
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
           ></MobileNavbar>
         ) : null}
       </AnimatePresence>

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { TfiClose } from 'react-icons/tfi'
 import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
-import useDarkMode from 'src/app/hooks/useDarkMode'
 
 type Props = {
   refs: {
@@ -19,6 +18,8 @@ type Props = {
   setMenuClicked: (value: boolean) => void
   menuClicked: boolean
   isMobile: boolean
+  isDarkMode: boolean
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type Links = {
@@ -38,6 +39,8 @@ export default function MobileNavbar({
   setMenuClicked,
   menuClicked,
   isMobile,
+  isDarkMode,
+  toggleDarkMode,
 }: Props) {
   const handleScroll = (ref: RefObject<null>, link: string) => {
     if (ref?.current?.id === 'home' || isMobile) {
@@ -68,6 +71,15 @@ export default function MobileNavbar({
     >
       <nav className='flex flex-col gap-5'>
         <div className='flex flex-col gap-5'>
+          <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
+            <WiMoonAltFirstQuarter
+              className='h-full w-full'
+              onClick={() => {
+                setMenuClicked(false)
+                toggleDarkMode(!isDarkMode)
+              }}
+            ></WiMoonAltFirstQuarter>
+          </div>
           {Object.entries(links).map(([key, link]) => {
             return (
               <Link
