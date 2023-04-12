@@ -57,7 +57,7 @@ export default function Home({ homeRef }: Props): JSX.Element {
   return (
     <section
       ref={homeRef}
-      className='grid h-[100vh] w-[100vw] place-content-center gap-2 text-3xl'
+      className='grid h-[50vh] w-[100vw] place-content-center gap-2 text-3xl md:h-[100vh]'
       id='home'
     >
       <div className='place-items-center gap-2 '>

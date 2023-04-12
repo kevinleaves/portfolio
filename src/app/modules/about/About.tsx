@@ -11,7 +11,7 @@ export default function About({ aboutRef }: Props) {
   return (
     <section
       ref={aboutRef}
-      className='flex flex-col place-items-center justify-center gap-10 px-2 md:flex-row'
+      className='flex flex-col-reverse place-items-center justify-center gap-10 px-2 md:flex-row'
       id='about'
     >
       <p className='w-9/12 md:w-3/6 lg:w-1/6'>
