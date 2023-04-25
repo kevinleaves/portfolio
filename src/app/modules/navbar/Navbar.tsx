@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
 import { IconButton } from '@chakra-ui/react'
-import { HamburgerIcon, MoonIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 type Props = {
   refs: {
@@ -100,7 +100,7 @@ export default function Navbar({
               </div>
               <IconButton
                 aria-label='darkmode toggle'
-                icon={<MoonIcon />}
+                icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
                 onClick={() => toggleDarkMode(!isDarkMode)}
                 size='lg'
                 variant='outline'
