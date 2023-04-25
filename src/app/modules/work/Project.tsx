@@ -10,6 +10,7 @@ import {
   Image,
   Stack,
   Badge,
+  Heading,
 } from '@chakra-ui/react'
 
 type Props = {
@@ -34,7 +35,9 @@ export default function Project({ project }: Props) {
     >
       <Card className='max-w-sm' size='sm'>
         <CardHeader>
-          <p className='text-center font-semibold'>{name}</p>
+          <Heading size='md' variant='underline'>
+            {name}
+          </Heading>
         </CardHeader>
         <Divider borderColor={'#A5C9CA'} />
         <CardBody>
