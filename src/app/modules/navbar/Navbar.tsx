@@ -17,6 +17,7 @@ type Props = {
   }
   isDarkMode: boolean
   toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+  isMobile: boolean
 }
 
 type Links = {
@@ -30,14 +31,12 @@ const links: Links = {
 }
 
 export default function Navbar({
+  isMobile,
   refs,
   isDarkMode,
   toggleDarkMode,
 }: Props): JSX.Element {
   const [menuClicked, setMenuClicked] = useState(false)
-  const isMobile = useMediaQuery({
-    query: '(max-width: 640px)',
-  })
 
   const handleScroll = (ref: RefObject<HTMLDivElement>, link: string) => {
     if (ref.id === 'home' || isMobile) {
