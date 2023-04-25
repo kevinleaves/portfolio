@@ -2,8 +2,8 @@ import React, { RefObject } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { TfiClose } from 'react-icons/tfi'
-import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
+import { IconButton } from '@chakra-ui/react'
+import { MoonIcon } from '@chakra-ui/icons'
 
 type Props = {
   refs: {
@@ -71,15 +71,14 @@ export default function MobileNavbar({
     >
       <nav className='flex flex-col gap-5'>
         <div className='flex flex-col gap-5'>
-          <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
-            <WiMoonAltFirstQuarter
-              className='h-full w-full'
-              onClick={() => {
-                setMenuClicked(false)
-                toggleDarkMode(!isDarkMode)
-              }}
-            ></WiMoonAltFirstQuarter>
-          </div>
+          <IconButton
+            aria-label='darkmode toggle'
+            icon={<MoonIcon />}
+            onClick={() => toggleDarkMode(!isDarkMode)}
+            size='lg'
+            variant='outline'
+            fontSize='25px'
+          />
           {Object.entries(links).map(([key, link]) => {
             return (
               <Link

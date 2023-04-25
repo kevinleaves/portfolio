@@ -2,10 +2,10 @@ import React, { useState, RefObject } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { TfiAlignRight } from 'react-icons/tfi'
-import { WiDaySunny, WiMoonAltFirstQuarter } from 'react-icons/wi'
 import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
+import { IconButton } from '@chakra-ui/react'
+import { HamburgerIcon, MoonIcon } from '@chakra-ui/icons'
 
 type Props = {
   refs: {
@@ -98,23 +98,27 @@ export default function Navbar({
                   )
                 })}
               </div>
-              <div className='h-10 w-10 rounded-full border-2 border-solid border-black hover:bg-purple-500'>
-                <WiMoonAltFirstQuarter
-                  className='h-full w-full'
-                  onClick={() => toggleDarkMode(!isDarkMode)}
-                ></WiMoonAltFirstQuarter>
-              </div>
+              <IconButton
+                aria-label='darkmode toggle'
+                icon={<MoonIcon />}
+                onClick={() => toggleDarkMode(!isDarkMode)}
+                size='lg'
+                variant='outline'
+                fontSize='25px'
+              />
             </div>
           </nav>
         ) : null}
 
         {/* mobile icon displays when isMobile AND menu is not showing */}
         {isMobile ? (
-          <div className='pt-2 pr-2'>
-            <TfiAlignRight
-              onClick={() => setMenuClicked(!menuClicked)}
-            ></TfiAlignRight>
-          </div>
+          <IconButton
+            aria-label='darkmode toggle'
+            icon={<HamburgerIcon />}
+            onClick={() => setMenuClicked(!menuClicked)}
+            size='lg'
+            fontSize='25px'
+          />
         ) : null}
       </header>
 

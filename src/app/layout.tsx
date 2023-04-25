@@ -1,8 +1,11 @@
 import './globals.css'
 
 export const metadata = {
+  icons: {
+    icon: '/images/logos/monkey.png',
+  },
   title: 'Kevin Le | Software Engineer',
-  description: 'Porfolio for Kevin Le, a Software Engineer',
+  description: 'Porfolio for Kevin Le, a Full Stack Software Engineer',
 }
 
 export default function RootLayout({
