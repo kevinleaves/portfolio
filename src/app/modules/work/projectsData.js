@@ -1,5 +1,25 @@
 const projects = [
   {
+    id: 3,
+    name: 'Soundclash',
+    role: 'Software Engineer',
+    description:
+      'Utilizing the Spotify API, pit your top songs against each other in an elimination style tournament and find your favorite song amongst your favorites.',
+    stack: ['Typescript', 'TailwindCSS', 'Node.js', 'Express.js'],
+    link: 'https://github.com/kevinleaves/Soundclash',
+    image: 'soundclash.png',
+  },
+  {
+    id: 4,
+    name: 'Harper',
+    role: 'Software Engineer',
+    description:
+      'A streaming platform where artists can connect with their fans.',
+    stack: ['React', 'Redux', 'TailwindCSS', 'Firebase', 'Express.js'],
+    link: 'https://github.com/kevinleaves/Harper-Woodward',
+    image: 'harper_woodward.gif',
+  },
+  {
     id: 1,
     name: 'Mecca',
     role: 'Software Engineer',
@@ -26,26 +46,6 @@ const projects = [
     ],
     link: 'https://github.com/kevinleaves/sdc-products-api',
     image: 'loader.io.png',
-  },
-  {
-    id: 3,
-    name: 'Soundclash',
-    role: 'Software Engineer',
-    description:
-      'Utilizing the Spotify API, pit your top songs against each other in an elimination style tournament and find your favorite song amongst your favorites.',
-    stack: ['Typescript', 'TailwindCSS', 'Node.js', 'Express.js'],
-    link: 'https://github.com/kevinleaves/Soundclash',
-    image: 'soundclash.png',
-  },
-  {
-    id: 4,
-    name: 'Harper',
-    role: 'Software Engineer',
-    description:
-      'A streaming platform where artists can connect with their fans.',
-    stack: ['React', 'Redux', 'TailwindCSS', 'Firebase', 'Express.js'],
-    link: 'https://github.com/kevinleaves/Harper-Woodward',
-    image: 'harper_woodward.gif',
   },
 ]
 

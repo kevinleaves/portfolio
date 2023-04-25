@@ -35,13 +35,13 @@ export default function Project({ project }: Props) {
     >
       <Card className='max-w-sm' size='sm'>
         <CardHeader>
-          <Heading size='md' variant='underline'>
+          <Heading size='md' variant='underline' fontStyle={'italic'}>
             {name}
           </Heading>
         </CardHeader>
-        <Divider borderColor={'#A5C9CA'} />
         <CardBody>
           <Image
+            objectFit='cover'
             boxSize={'25rem'}
             src={`/images/projects/${image}`}
             alt={name}
@@ -59,11 +59,12 @@ export default function Project({ project }: Props) {
             <p>{description}</p>
           </Stack>
         </CardBody>
-        <Divider borderColor={'#A5C9CA'} />
         <CardFooter>
-          <ul className='flex flex-wrap gap-3'>
+          <ul className='flex flex-wrap gap-2'>
             {stack.map((technology, index) => (
-              <Badge key={index}>{technology}</Badge>
+              <Badge py='1' px='2' key={index}>
+                {technology}
+              </Badge>
             ))}
           </ul>
         </CardFooter>
