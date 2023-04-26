@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { IconButton } from '@chakra-ui/react'
-import { MoonIcon } from '@chakra-ui/icons'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 type Props = {
   refs: {
@@ -73,7 +73,7 @@ export default function MobileNavbar({
         <div className='flex flex-col gap-5'>
           <IconButton
             aria-label='darkmode toggle'
-            icon={<MoonIcon />}
+            icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
             onClick={() => toggleDarkMode(!isDarkMode)}
             size='lg'
             variant='outline'

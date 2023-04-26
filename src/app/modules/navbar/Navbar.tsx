@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
 import { IconButton } from '@chakra-ui/react'
-import { HamburgerIcon, MoonIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 type Props = {
   refs: {
@@ -17,6 +17,7 @@ type Props = {
   }
   isDarkMode: boolean
   toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+  isMobile: boolean
 }
 
 type Links = {
@@ -30,14 +31,12 @@ const links: Links = {
 }
 
 export default function Navbar({
+  isMobile,
   refs,
   isDarkMode,
   toggleDarkMode,
 }: Props): JSX.Element {
   const [menuClicked, setMenuClicked] = useState(false)
-  const isMobile = useMediaQuery({
-    query: '(max-width: 640px)',
-  })
 
   const handleScroll = (ref: RefObject<HTMLDivElement>, link: string) => {
     if (ref.id === 'home' || isMobile) {
@@ -100,7 +99,7 @@ export default function Navbar({
               </div>
               <IconButton
                 aria-label='darkmode toggle'
-                icon={<MoonIcon />}
+                icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
                 onClick={() => toggleDarkMode(!isDarkMode)}
                 size='lg'
                 variant='outline'
