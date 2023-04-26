@@ -14,15 +14,19 @@ import useDarkMode from 'src/app/hooks/useDarkMode'
 import { useMediaQuery } from 'react-responsive'
 
 export default function App() {
+  const [isDarkMode, toggleDarkMode] = useDarkMode()
+
   const isMobile = useMediaQuery({
     query: '(max-width: 640px)',
   })
 
   const [isScrolling, setIsScrolling] = useState(false)
 
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0)
+
   useEffect(() => {
     let timeoutId
-    function handleScroll() {
+    const handleScroll = () => {
       clearTimeout(timeoutId)
       setIsScrolling(true)
       timeoutId = setTimeout(() => {
@@ -32,12 +36,9 @@ export default function App() {
 
     window.addEventListener('scroll', handleScroll)
 
+    // cleanup function removes event listener
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const [isDarkMode, toggleDarkMode] = useDarkMode()
-
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0)
 
   const refs = {
     home: useRef(null),
@@ -54,12 +55,11 @@ export default function App() {
       threshold: isMobile ? 0 : 0.75,
     }
 
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const refArray = sectionRefs.map((ref) => ref.current)
           const index = refArray.indexOf(entry.target)
-          console.log(index, 'index')
           setCurrentSectionIndex(index)
         }
       })
@@ -72,13 +72,15 @@ export default function App() {
     })
 
     return () => observer.disconnect()
-  }, [sectionRefs])
+  }, [sectionRefs, isMobile])
 
   const scrollToSection = (index) => {
     sectionRefs[index].current.scrollIntoView({
       behavior: 'smooth',
     })
   }
+
+  // dots signifying which component user is currently viewing. hides while user is scrolling
 
   const dots = (
     <motion.div
@@ -111,7 +113,6 @@ export default function App() {
           toggleDarkMode={toggleDarkMode}
         />
         {dots}
-        {/* {!isScrolling ? dots : null} */}
         <Home homeRef={refs.home} />
         <About aboutRef={refs.about} />
         <Work workRef={refs.work} />
