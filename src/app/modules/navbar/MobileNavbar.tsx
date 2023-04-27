@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react'
+import React, { useEffect, RefObject } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -57,8 +57,25 @@ export default function MobileNavbar({
     setTimeout(() => {
       window.location.href = link
     }, 500) // navigate to link after 0.5 seconds
+
     setMenuClicked(false)
   }
+
+  useEffect(() => {
+    let timeoutId
+    const handleScroll = () => {
+      clearTimeout(timeoutId)
+      setMenuClicked(false)
+      timeoutId = setTimeout(() => {
+        setMenuClicked(true)
+      }, 500) // Change this value to adjust the delay before showing the element again
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    // cleanup function removes event listener
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <motion.div
@@ -84,7 +101,7 @@ export default function MobileNavbar({
               <Link
                 key={key}
                 href={link}
-                className='hover:text-indigo-500'
+                className='font-extralight hover:text-indigo-500'
                 onClick={(e) => {
                   e.preventDefault()
                   handleScroll(refs[key], link)
