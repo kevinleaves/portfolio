@@ -53,13 +53,12 @@ export default function Navbar({
     // setTimeout(() => {
     //   window.location.href = link
     // }, 700) // navigate to link after 0.5 seconds
-    setMenuClicked(false)
   }
 
   return (
     <>
       <header
-        className='sticky top-0 z-10 flex justify-between py-2 text-2xl backdrop-blur-md backdrop-opacity-95 backdrop-filter'
+        className='sticky top-0 z-10 flex justify-between py-2 px-2 text-2xl backdrop-blur-md backdrop-opacity-95 backdrop-filter'
         ref={refs.navbar}
         id='navbar'
       >
@@ -86,7 +85,7 @@ export default function Navbar({
                     <Link
                       key={key}
                       href={link}
-                      className='hover:text-indigo-500'
+                      className='font-extralight hover:text-indigo-500'
                       onClick={(e) => {
                         e.preventDefault()
                         handleScroll(refs[key].current, link)
