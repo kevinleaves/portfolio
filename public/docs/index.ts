@@ -1,2 +1,2 @@
-const Resume = '/docs/kevin_le_resume2023.pdf'
+const Resume = '/docs/Resume_KevinLe.pdf'
 export default Resume
