@@ -72,7 +72,7 @@ const projects = [
       'TailwindCSS',
     ],
     link: 'https://github.com/kevinleaves/pomoquest',
-    link2: 'https://www.pomoquest.vercel.app',
+    link2: 'https://pomoquest.vercel.app',
     image: 'pomoquest.png',
   },
 ]

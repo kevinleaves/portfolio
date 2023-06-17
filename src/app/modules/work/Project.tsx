@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 // import Image from 'next/image'
-
+import { LinkIcon } from '@chakra-ui/icons'
 import {
   Card,
   CardHeader,
@@ -11,6 +11,7 @@ import {
   Stack,
   Badge,
   Heading,
+  Box,
 } from '@chakra-ui/react'
 
 type Props = {
@@ -22,11 +23,12 @@ type Props = {
     stack: Array<string>
     link: string
     image: string
+    link2?: string
   }
 }
 
 export default function Project({ project }: Props) {
-  const { name, role, description, stack, link, image } = project
+  const { name, role, description, stack, link, image, link2 } = project
   return (
     <motion.div
       className='z-0'
@@ -47,13 +49,26 @@ export default function Project({ project }: Props) {
             alt={name}
             borderRadius='lg'
           />
-          <a href={link} target='blank' className='flex justify-center pt-6'>
-            <Image
-              src='/images/logos/github-mark.png'
-              boxSize={'2rem'}
-              alt='social_logo'
-            />
-          </a>
+          <ul className='flex justify-center gap-5'>
+            <a href={link} target='blank' className='flex justify-center pt-6'>
+              <Image
+                src='/images/logos/github-mark.png'
+                boxSize={'2rem'}
+                alt='social_logo'
+              />
+            </a>
+            {link2 ? (
+              <a
+                href={link2}
+                target='blank'
+                className='flex justify-center pt-6'
+              >
+                <Box boxSize={'2rem'} onClick={link2}>
+                  <LinkIcon className='h-full w-full' />
+                </Box>
+              </a>
+            ) : null}
+          </ul>
           <Stack my='5'>
             <p className='text-sm'>{role}</p>
             <p>{description}</p>
