@@ -33,7 +33,7 @@ export default function Project({ project }: Props) {
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
-      <Card className='max-w-sm' size='sm'>
+      <Card className='h-full max-w-sm' size='sm'>
         <CardHeader>
           <Heading size='md' variant='underline' fontStyle={'italic'}>
             {name}
