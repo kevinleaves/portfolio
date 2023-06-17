@@ -13,10 +13,14 @@ export default function Work({ workRef }: Props) {
       className='flex flex-col items-center justify-center md:max-w-[100%]'
     >
       <h2 className='mb-7 text-3xl'>projects</h2>
-      <ul className='flex w-9/12 flex-col flex-wrap gap-5 md:w-fit md:flex-row md:justify-center'>
-        {projects?.map((project) => (
-          <Project key={project.id} project={project} />
-        ))}
+      <ul className='flex w-9/12 flex-col flex-wrap gap-5 md:w-fit md:flex-row md:justify-center '>
+        {projects
+          ?.sort((a, b) => {
+            return b.id - a.id
+          })
+          .map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
       </ul>
     </section>
   )

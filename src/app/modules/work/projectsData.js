@@ -30,7 +30,7 @@ const projects = [
   },
   {
     id: 2,
-    name: 'Incredible',
+    name: 'Atelier',
     role: 'Software Engineer',
     description:
       'Deployed an RESTful API microservice capable of handling real-world traffic.',
@@ -46,6 +46,23 @@ const projects = [
     ],
     link: 'https://github.com/kevinleaves/sdc-products-api',
     image: 'loader.io.png',
+  },
+  {
+    id: 5,
+    name: 'Pomoquest',
+    role: 'Software Engineer',
+    description: 'A gamified pomodoro timer to improve productivity',
+    stack: [
+      'React',
+      'TypeScript',
+      'Next.js',
+      'TRPC',
+      'Prisma',
+      'Material UI',
+      'TailwindCSS',
+    ],
+    link: 'https://github.com/kevinleaves/pomoquest',
+    image: 'pomoquest.png',
   },
 ]
 

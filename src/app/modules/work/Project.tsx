@@ -42,7 +42,7 @@ export default function Project({ project }: Props) {
         <CardBody>
           <Image
             objectFit='cover'
-            boxSize={'25rem'}
+            boxSize={'30rem'}
             src={`/images/projects/${image}`}
             alt={name}
             borderRadius='lg'
