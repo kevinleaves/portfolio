@@ -78,7 +78,7 @@ export default function Navbar({
         {/* desktop navbar only displays when not mobile*/}
         {!isMobile ? (
           <nav className='flex'>
-            <div className='flex items-end gap-2'>
+            <div className='flex items-center gap-2'>
               <div className='flex gap-2'>
                 {Object.entries(links).map(([key, link]) => {
                   return (
@@ -101,7 +101,7 @@ export default function Navbar({
                 icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
                 onClick={() => toggleDarkMode(!isDarkMode)}
                 size='lg'
-                variant='outline'
+                variant='ghost'
                 fontSize='25px'
               />
             </div>

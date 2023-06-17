@@ -60,7 +60,7 @@ const projects = [
     name: 'Pomoquest',
     role: 'Software Engineer',
     description:
-      'A production-ready, gamified pomodoro timer to improve productivity. Upon completion of any of the timers, user gains coins which you can use to improve the in-app experience. Deployed on Vercel & PlanetScale',
+      'A production-ready, gamified pomodoro timer to improve productivity. Upon completion of any of the timers, user gains coins which you can use to improve the in-app experience. Deployed on Vercel & PlanetScale.',
     stack: [
       'React',
       'TypeScript',
