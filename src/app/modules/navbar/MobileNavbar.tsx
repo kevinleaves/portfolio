@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconButton } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import Resume from '@public/docs'
 
 type Props = {
   refs: {
@@ -93,7 +94,7 @@ export default function MobileNavbar({
             icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
             onClick={() => toggleDarkMode(!isDarkMode)}
             size='lg'
-            variant='outline'
+            variant='ghost'
             fontSize='25px'
           />
           {Object.entries(links).map(([key, link]) => {
@@ -111,6 +112,14 @@ export default function MobileNavbar({
               </Link>
             )
           })}
+          <Link
+            href={Resume}
+            download={Resume}
+            className=' font-bold hover:text-purple-500'
+            target='_blank'
+          >
+            resume
+          </Link>
         </div>
       </nav>
     </motion.div>
