@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import MobileNavbar from './MobileNavbar'
 import { IconButton } from '@chakra-ui/react'
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import Resume from '@public/docs'
 
 type Props = {
   refs: {
@@ -95,6 +96,14 @@ export default function Navbar({
                     </Link>
                   )
                 })}
+                <Link
+                  href={Resume}
+                  download={Resume}
+                  className=' font-bold hover:text-purple-500'
+                  target='_blank'
+                >
+                  resume
+                </Link>
               </div>
               <IconButton
                 aria-label='darkmode toggle'
