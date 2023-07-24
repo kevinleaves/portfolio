@@ -22,7 +22,8 @@
     "baseUrl": "./",
     "paths": {
       "@public/*": ["public/*"],
-      "@modules/*": ["src/app/modules/*"]
+      "@modules/*": ["src/app/modules/*"],
+      "@sanity/*": ["sanity/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
