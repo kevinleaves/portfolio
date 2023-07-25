@@ -1,13 +1,15 @@
 import type { SanityDocument } from '@sanity/client'
 import PostBody from './PostBody'
+import PostDate from './PostDate'
 import { Post } from 'types/interfaces'
-
 export default function Posts({ posts = [] }: { posts: Post[] }) {
   for (let i = 0; i < posts.length; i++) {
     let post = posts[i]
-    console.log(post)
-    console.log(post.author)
-    console.log(post.authorName)
+    // console.log(post)
+    // console.log(post.author)
+    // console.log(post.authorName)
+    // console.log(post._createdAt)
+    // console.log(post._updatedAt)
   }
 
   return (
@@ -22,6 +24,9 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
               </h1>
               <div>{post.slug?.current}</div>
               <div>{post?.author?.name}</div>
+              <PostDate dateString={post?._createdAt} />
+              <PostDate dateString={post?.publishedAt} />
+              <PostDate dateString={post?._updatedAt} />
               <PostBody content={post.body} />
             </li>
           )
