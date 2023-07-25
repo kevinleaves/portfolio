@@ -13,6 +13,7 @@ export const SanityImage = (props: Props) => {
   const { asset, alt, caption } = props
   const imageProp = useNextSanityImage(getSanityImageConfig(), asset)
   const { loader, src, width, height } = imageProp
+  // console.log(loader, 'loader')
   // TODO: find out what the loader prop does in next/image component
   const imageProps = { src, width, height }
   if (!imageProps) return null
