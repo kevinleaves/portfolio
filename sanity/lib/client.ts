@@ -10,4 +10,10 @@ const client = createClient({
   useCdn,
 })
 
+export function getClient() {
+  return client
+}
+
+export const getSanityImageConfig = () => getClient()
+
 export const clientFetch = cache(client.fetch.bind(client))
