@@ -2,6 +2,7 @@ import type { SanityDocument } from '@sanity/client'
 import PostBody from './PostBody'
 import PostDate from './PostDate'
 import { Post } from 'types/interfaces'
+import Link from 'next/link'
 export default function Posts({ posts = [] }: { posts: Post[] }) {
   for (let i = 0; i < posts.length; i++) {
     let post = posts[i]
@@ -23,6 +24,13 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
                 {post.title}
               </h1>
               <div>{post?.slug}</div>
+              <Link
+                className='text-6xl font-bold text-blue-500'
+                href={`/blog/posts/${post?.slug}`}
+              >
+                {' '}
+                {post?.slug}
+              </Link>
               <div>{post?.author?.name}</div>
               <PostDate dateString={post?._createdAt} />
               <PostDate dateString={post?.publishedAt} />
