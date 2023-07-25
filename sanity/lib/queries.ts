@@ -8,7 +8,7 @@ const postFields = groq`
   _updatedAt,
   publishedAt,
   body,
-  slug,
+  "slug": slug.current,
   author->,
   "authorName": author->{
     name,
@@ -17,3 +17,7 @@ const postFields = groq`
 `
 
 export const postsQuery = groq`*[_type == "post"] {${postFields}}`
+
+export const postSlugsQuery = groq`
+*[_type == "post" && defined(slug.current)][].slug.current
+`

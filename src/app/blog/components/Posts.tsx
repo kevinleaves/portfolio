@@ -22,7 +22,7 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
               <h1 className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
                 {post.title}
               </h1>
-              <div>{post.slug?.current}</div>
+              <div>{post?.slug}</div>
               <div>{post?.author?.name}</div>
               <PostDate dateString={post?._createdAt} />
               <PostDate dateString={post?.publishedAt} />

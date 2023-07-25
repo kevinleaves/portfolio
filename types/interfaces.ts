@@ -30,11 +30,8 @@ export interface Post {
   _createdAt?: string
   _updatedAt?: string
   title?: string
-  slug?: {
-    _type?: 'slug'
-    current?: string
-  }
-  author?: AuthorReference | Author
+  slug?: string
+  author?: Author | AuthorReference
   mainImage?: Image
   categories?: CategoryReference[]
   publishedAt?: string
