@@ -7,11 +7,12 @@ const SEND_TO = process.env.NEXT_PUBLIC_SEND_TO_EMAIL
 /**
  *
  * takes in a richtext converted into htmlstring and fires request to sendgrid mailsend api
- * @param content
+ * @param subject is the email's subject
+ * @param content is an HTML string containing the body of the email
  * @returns a promise
  */
 
-export default async function SendGrid(content) {
+export default async function SendGrid(subject: string, content: string) {
   console.log(content)
   const body = {
     personalizations: [
@@ -22,7 +23,7 @@ export default async function SendGrid(content) {
             name: 'Kevin Le',
           },
         ],
-        subject: 'Are we back?',
+        subject,
       },
     ],
     content: [
