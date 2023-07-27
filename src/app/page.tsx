@@ -10,7 +10,7 @@ import { Footer } from '@modules/footer'
 import { useRef } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import useDarkMode from 'src/app/hooks/useDarkMode'
+import useDarkMode from 'src/app/_hooks/useDarkMode'
 import { useMediaQuery } from 'react-responsive'
 
 export default function App() {
