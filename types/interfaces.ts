@@ -25,17 +25,17 @@ export interface CategoryReference {
 }
 
 export interface Post {
-  _type?: 'document'
-  _id?: string
+  _type: 'document'
+  _id: string
   _createdAt?: string
   _updatedAt?: string
-  title?: string
-  slug?: string
-  author?: Author | AuthorReference
+  title: string
+  slug: string
+  author: Author | AuthorReference
   mainImage?: Image
   categories?: CategoryReference[]
   publishedAt?: string
-  body?: BlockContent
+  body: BlockContent
 }
 
 // Assuming you have an 'Author' type and 'Category' type defined elsewhere in your schema

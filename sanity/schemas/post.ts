@@ -9,6 +9,12 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => [
+        Rule.required()
+          .min(3)
+          .error('A title of min. 3 characters is required'),
+        Rule.max(80).warning('Shorter titles are usually better'),
+      ],
     }),
     defineField({
       name: 'slug',
@@ -24,6 +30,10 @@ export default defineType({
       title: 'Author',
       type: 'reference',
       to: { type: 'author' },
+      validation: (Rule) => Rule.required(),
+      initialValue: {
+        _ref: '7f65680c-e22d-4cfd-9f15-3fc67f632ea5',
+      },
     }),
     defineField({
       name: 'mainImage',
@@ -50,11 +60,14 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      initialValue: new Date().toISOString(),
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (Rule) =>
+        Rule.required().error('Blog bodies cannot be empty.'),
     }),
   ],
 
