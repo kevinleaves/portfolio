@@ -1,10 +1,9 @@
-import { Post, GetListResponse, Contact } from 'types/interfaces'
+import { GetListResponse } from 'types/interfaces'
 
 const url = 'https://api.sendgrid.com/v3/mail/send'
 
 const SENDGRID_API_KEY = process.env.NEXT_PUBLIC_SENDGRID_API_KEY
 const SEND_FROM = process.env.NEXT_PUBLIC_SEND_FROM_EMAIL
-const SEND_TO = process.env.NEXT_PUBLIC_SEND_TO_EMAIL
 
 /**
  *
