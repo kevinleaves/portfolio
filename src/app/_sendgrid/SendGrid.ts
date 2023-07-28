@@ -62,6 +62,8 @@ export async function SendGrid(
 
 export async function getContactList() {
   const listID = process.env.NEXT_PUBLIC_SENDGRID_NEWSLETTER_LIST_ID
+
+  //! this does not scale. api only allows for fetch of 50 contacts. once we reach >50 contacts, store your email list elsewhere
   const url = `https://api.sendgrid.com/v3/marketing/lists/${listID}?contact_sample=true`
 
   const options = {
