@@ -27,7 +27,8 @@ export async function SendGrid(
   const body = {
     personalizations: [
       {
-        to: recipients,
+        to: [{ email: SEND_FROM, name: 'Kevin Le' }],
+        bcc: recipients,
         subject,
       },
     ],
@@ -56,6 +57,7 @@ export async function SendGrid(
     body: JSON.stringify(body),
   }
 
+  console.log(body, 'body')
   return fetch(url, options)
 }
 
