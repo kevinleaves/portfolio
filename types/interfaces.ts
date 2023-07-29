@@ -25,17 +25,17 @@ export interface CategoryReference {
 }
 
 export interface Post {
-  _type?: 'document'
-  _id?: string
+  _type: 'document'
+  _id: string
   _createdAt?: string
   _updatedAt?: string
-  title?: string
-  slug?: string
-  author?: Author | AuthorReference
+  title: string
+  slug: string
+  author: Author | AuthorReference
   mainImage?: Image
   categories?: CategoryReference[]
   publishedAt?: string
-  body?: BlockContent
+  body: BlockContent
 }
 
 // Assuming you have an 'Author' type and 'Category' type defined elsewhere in your schema
@@ -91,4 +91,40 @@ export interface Mark {
 export interface MarkDef {
   _type?: 'link'
   href?: string
+}
+
+export interface GetListResponse {
+  name: string
+  id: string
+  contact_count: number
+  contact_sample: Contact[]
+  _metadata: {
+    self: string
+  }
+}
+
+export interface Contact {
+  address_line_1: string
+  address_line_2: string
+  alternate_emails: null
+  city: string
+  country: string
+  email: string
+  first_name: string
+  id: string
+  last_name: string
+  list_ids: string[]
+  postal_code: string
+  state_province_region: string
+  phone_number: string
+  whatsapp: string
+  line: string
+  facebook: string
+  unique_name: string
+  _metadata: {
+    self: string
+  }
+  custom_fields: any // You can replace 'any' with a more specific type if you know the structure of custom_fields.
+  created_at: string
+  updated_at: string
 }

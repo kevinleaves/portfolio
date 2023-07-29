@@ -19,22 +19,14 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
         {posts.map((post) => {
           return (
             <li key={post._id}>
-              {/* {JSON.stringify(post)} */}
-              <h1 className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
-                {post.title}
-              </h1>
-              <div>{post?.slug}</div>
               <Link
-                className='text-6xl font-bold text-blue-500'
+                className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter hover:underline md:text-left md:text-7xl md:leading-none lg:text-8xl'
                 href={`/blog/posts/${post?.slug}`}
               >
-                {' '}
-                {post?.slug}
+                {post.title}
               </Link>
               <div>{post?.author?.name}</div>
-              <PostDate dateString={post?._createdAt} />
               <PostDate dateString={post?.publishedAt} />
-              <PostDate dateString={post?._updatedAt} />
               <PostBody content={post.body} />
             </li>
           )

@@ -13,10 +13,11 @@ const postFields = groq`
   "authorName": author->{
     name,
     image,
-  }
+  },
+  "postCategory": categories->.title,
 `
 
-export const postsQuery = groq`*[_type == "post"] {${postFields}}`
+export const postsQuery = groq`*[_type == "post" && categories->.title != "Personal"] {${postFields}}`
 
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
@@ -33,7 +34,7 @@ export const postAndMoreStoriesQuery = groq`
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${postFields}
   },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "morePosts": *[_type == "post" && slug.current != $slug && categories->.title != "Personal"] | order(date desc, _updatedAt desc) [0...2] {
     ${postFields}
   }
 }`
