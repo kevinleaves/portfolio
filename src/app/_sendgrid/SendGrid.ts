@@ -46,6 +46,13 @@ export async function SendGrid(
       email: SEND_FROM,
       name: 'Kevin Le',
     },
+    //* toggle this on during development & off in production
+    //* https://docs.sendgrid.com/for-developers/sending-email/sandbox-mode
+    // mail_settings: {
+    //   sandbox_mode: {
+    //     enable: true,
+    //   },
+    // },
   }
 
   const options = {
@@ -58,6 +65,7 @@ export async function SendGrid(
   }
 
   console.log(body, 'body')
+
   return fetch(url, options)
 }
 
