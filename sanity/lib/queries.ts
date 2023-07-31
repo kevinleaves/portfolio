@@ -9,11 +9,11 @@ const postFields = groq`
   publishedAt,
   body,
   "slug": slug.current,
-  author->,
-  "authorName": author->{
-    name,
-    image,
-  },
+  "author": author->{name, image},
+  mainImage,
+  "mainImageAsset": mainImage.asset->,
+  "mainImageUrl": mainImage.asset->.url,
+  "authorName": author->.name,
   "postCategory": categories->.title,
 `
 
