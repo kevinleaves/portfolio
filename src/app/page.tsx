@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ElementRef } from 'react'
 import { Navbar } from '@modules/navbar'
 import { Home } from '@modules/home'
 import { Work } from '@modules/work'
@@ -41,7 +41,7 @@ export default function App() {
   }, [])
 
   const refs = {
-    home: useRef(null),
+    home: useRef<ElementRef<typeof Home>>(null),
     about: useRef(null),
     work: useRef(null),
     hobbies: useRef(null),
@@ -74,7 +74,7 @@ export default function App() {
     return () => observer.disconnect()
   }, [sectionRefs, isMobile])
 
-  const scrollToSection = (index) => {
+  const scrollToSection = (index: number) => {
     sectionRefs[index].current.scrollIntoView({
       behavior: 'smooth',
     })
@@ -111,7 +111,7 @@ export default function App() {
           refs={refs}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
-        />
+      />
         {dots}
         <Home homeRef={refs.home} />
         <About aboutRef={refs.about} />

@@ -97,6 +97,12 @@ export default function Navbar({
                   )
                 })}
                 <Link
+                  href={'/blog'}
+                  className=' font-bold hover:text-purple-500'
+                >
+                  blog
+                </Link>
+                <Link
                   href={Resume}
                   download={Resume}
                   className=' font-bold hover:text-purple-500'
@@ -104,6 +110,7 @@ export default function Navbar({
                 >
                   resume
                 </Link>
+
               </div>
               <IconButton
                 aria-label='darkmode toggle'
