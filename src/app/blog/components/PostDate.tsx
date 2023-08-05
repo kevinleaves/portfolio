@@ -8,5 +8,9 @@ export default function PostDate({
   if (!dateString) return null
 
   const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
+  return (
+    <time className='font-thin' dateTime={dateString}>
+      {format(date, 'LLLL	d, yyyy')}
+    </time>
+  )
 }
