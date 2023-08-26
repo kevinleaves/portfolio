@@ -31,11 +31,13 @@ export interface Post {
   _updatedAt?: string
   title: string
   slug: string
-  author: Author | AuthorReference
+  author: Author
+  authorName: string
   mainImage?: Image
   categories?: CategoryReference[]
   publishedAt?: string
   body: BlockContent
+  postCategory: string
 }
 
 // Assuming you have an 'Author' type and 'Category' type defined elsewhere in your schema
