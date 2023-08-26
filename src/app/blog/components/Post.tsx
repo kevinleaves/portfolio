@@ -3,12 +3,13 @@ import PostDate from './PostDate'
 import AuthorAvatar from './AuthorAvatar'
 import { Post } from 'types/interfaces'
 import Link from 'next/link'
+import PostCategory from './PostCategory'
 
 interface Props {
   post: Post
 }
 
-export default function Post({post}: Props) {
+export default function Post({ post }: Props) {
   return (
     <li>
       <Link
@@ -17,9 +18,10 @@ export default function Post({post}: Props) {
       >
         {post.title}
       </Link>
-      <AuthorAvatar name={post.authorName} image={post.author.image}/>
+      <AuthorAvatar name={post.authorName} image={post.author.image} />
       <PostDate dateString={post?.publishedAt} />
       <PostBody content={post.body} />
+      <PostCategory category={post.postCategory} />
     </li>
   )
 }
