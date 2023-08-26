@@ -13,6 +13,16 @@ import { motion } from 'framer-motion'
 import useDarkMode from 'src/app/_hooks/useDarkMode'
 import { useMediaQuery } from 'react-responsive'
 
+type Links = {
+  [key: string]: string
+}
+
+const links: Links = {
+  about: '/#about',
+  work: '/#work',
+  hobbies: '/#hobbies',
+}
+
 export default function App() {
   const [isDarkMode, toggleDarkMode] = useDarkMode()
 
@@ -107,6 +117,7 @@ export default function App() {
     <ChakraProvider resetCSS={true}>
       <div className='flex h-full flex-col gap-5'>
         <Navbar
+          links={links}
           isMobile={isMobile}
           refs={refs}
           isDarkMode={isDarkMode}
