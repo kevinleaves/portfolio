@@ -17,7 +17,7 @@ const postFields = groq`
   "postCategory": categories->.title,
 `
 
-export const postsQuery = groq`*[_type == "post" && categories->.title != "Personal"] {${postFields}}`
+export const postsQuery = groq`*[_type == "post" && categories->.title != "Personal"] | order(_updatedAt desc) {${postFields}}`
 
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
