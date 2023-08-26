@@ -1,12 +1,6 @@
 import PostsList from './components/PostsList'
 import { clientFetch } from '@sanity/lib/client'
-import {
-  postsQuery,
-  postSlugsQuery,
-  postBySlugQuery,
-  postAndMoreStoriesQuery,
-} from '@sanity/lib/queries'
-import CoverImage from './components/CoverImage'
+import { postsQuery } from '@sanity/lib/queries'
 export default async function BlogPage() {
   const allPosts = await clientFetch(postsQuery)
   return (
