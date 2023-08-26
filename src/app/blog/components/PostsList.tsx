@@ -1,24 +1,19 @@
-import PostBody from './PostBody'
-import PostDate from './PostDate'
-import AuthorAvatar from './AuthorAvatar'
-import Link from 'next/link'
-import Post from './Post'
+import PostView from './PostView'
+import { Post } from 'types/interfaces'
 
-export default function Posts({ posts = [] }: { posts: Post[] }) {
-  for (let i = 0; i < posts.length; i++) {
-    let post = posts[i]
-    // console.log(post)
-    // console.log(post.author)
-    // console.log(post.authorName)
-    // console.log(post._createdAt)
-    // console.log(post._updatedAt)
-  }
+interface Props {
+  posts: Post[]
+}
 
+export default function Posts({ posts }: Props) {
   return (
     <main>
-      <ul>
+      <ul className='flex flex-col gap-4'>
         {posts.map((post) => (
-          <Post key={post?._id} post={post} />
+          <>
+            <PostView key={post?._id} post={post} />
+            <hr className='my-16 border-2'></hr>
+          </>
         ))}
       </ul>
     </main>

@@ -1,7 +1,7 @@
+import { Post } from 'types/interfaces'
 import PostBody from './PostBody'
 import PostDate from './PostDate'
 import AuthorAvatar from './AuthorAvatar'
-import { Post } from 'types/interfaces'
 import Link from 'next/link'
 import PostCategory from './PostCategory'
 
@@ -9,7 +9,7 @@ interface Props {
   post: Post
 }
 
-export default function Post({ post }: Props) {
+export default function PostView({ post }: Props) {
   return (
     <li>
       <Link
