@@ -20,10 +20,10 @@ export default function CoverImage ({title, slug, image: source, priority}: Prop
     >
       <Image
         className="h-auto w-full"
-        width={2000}
-        height={1000}
+        width={1500}
+        height={750}
         alt={`Cover Image for ${title}`}
-        src={urlForImage(source).height(1000).width(2000).url()}
+        src={urlForImage(source).height(750).width(1500).url()}
         sizes="100vw"
         priority={priority}
       />

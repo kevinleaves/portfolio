@@ -10,7 +10,7 @@ export default function PostPreview({
   author,
   mainImage,
   publishedAt,
-}: Omit<Post, '_id' | 'body' | '_type' | 'authorName'>) {
+}: Omit<Post, '_id' | 'body' | '_type' | 'authorName' | 'postCategory'>) {
   return (
     <div>
       <div className='mb-5'>
