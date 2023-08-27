@@ -1,5 +1,5 @@
 import Navbar from './(navbar)/components/Navbar'
-import { links } from './(navbar)/links/links'
+import { blogLinks } from './(navbar)/links/links'
 
 export default function BlogLayout({
   children,
@@ -8,7 +8,7 @@ export default function BlogLayout({
 }) {
   return (
     <section>
-      <Navbar links={links} />
+      <Navbar links={blogLinks} />
       {children}
     </section>
   )
