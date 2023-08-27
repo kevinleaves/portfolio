@@ -1,3 +1,4 @@
+import Link from 'next/link'
 /**
  * This component uses Portable Text to render a post body.
  *
@@ -21,11 +22,20 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
       return <SanityImage {...value} />
     },
   },
+  marks: {
+    link: ({ value, children }) => {
+      return (
+        <Link href={value?.href} target={'_blank'}>
+          {children}
+        </Link>
+      )
+    },
+  },
 }
 
 export default function PostBody({ content }) {
   return (
-    <div className={`mx-auto max-w-2xl ${styles.portableText}`}>
+    <div className={`${styles.portableText}`}>
       <PortableText value={content} components={myPortableTextComponents} />
     </div>
   )

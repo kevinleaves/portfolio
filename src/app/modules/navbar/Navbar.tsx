@@ -9,12 +9,13 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import Resume from '@public/docs'
 
 type Props = {
+  links: Links
   refs: {
-    navbar: RefObject<null>
-    home: RefObject<null>
-    about: RefObject<null>
-    work: RefObject<null>
-    hobbies: RefObject<null>
+    navbar: RefObject<HTMLDivElement>
+    home: RefObject<HTMLDivElement>
+    about: RefObject<HTMLDivElement>
+    work: RefObject<HTMLDivElement>
+    hobbies: RefObject<HTMLDivElement>
   }
   isDarkMode: boolean
   toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
@@ -25,13 +26,8 @@ type Links = {
   [key: string]: string
 }
 
-const links: Links = {
-  about: '/#about',
-  work: '/#work',
-  hobbies: '/#hobbies',
-}
-
 export default function Navbar({
+  links,
   isMobile,
   refs,
   isDarkMode,
@@ -97,6 +93,12 @@ export default function Navbar({
                   )
                 })}
                 <Link
+                  href={'/blog'}
+                  className=' font-bold hover:text-purple-500'
+                >
+                  blog
+                </Link>
+                <Link
                   href={Resume}
                   download={Resume}
                   className=' font-bold hover:text-purple-500'
@@ -133,6 +135,7 @@ export default function Navbar({
       <AnimatePresence>
         {isMobile && menuClicked ? (
           <MobileNavbar
+            links={links}
             refs={refs}
             menuClicked={menuClicked}
             setMenuClicked={setMenuClicked}

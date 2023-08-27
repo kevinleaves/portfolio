@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ElementRef } from 'react'
 import { Navbar } from '@modules/navbar'
 import { Home } from '@modules/home'
 import { Work } from '@modules/work'
@@ -8,10 +8,19 @@ import { About } from '@modules/about'
 import { Hobbies } from '@modules/hobbies'
 import { Footer } from '@modules/footer'
 import { useRef } from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import useDarkMode from 'src/app/_hooks/useDarkMode'
 import { useMediaQuery } from 'react-responsive'
+
+type Links = {
+  [key: string]: string
+}
+
+const links: Links = {
+  about: '/#about',
+  work: '/#work',
+  hobbies: '/#hobbies',
+}
 
 export default function App() {
   const [isDarkMode, toggleDarkMode] = useDarkMode()
@@ -41,7 +50,7 @@ export default function App() {
   }, [])
 
   const refs = {
-    home: useRef(null),
+    home: useRef<ElementRef<typeof Home>>(null),
     about: useRef(null),
     work: useRef(null),
     hobbies: useRef(null),
@@ -74,7 +83,7 @@ export default function App() {
     return () => observer.disconnect()
   }, [sectionRefs, isMobile])
 
-  const scrollToSection = (index) => {
+  const scrollToSection = (index: number) => {
     sectionRefs[index].current.scrollIntoView({
       behavior: 'smooth',
     })
@@ -104,21 +113,20 @@ export default function App() {
   )
 
   return (
-    <ChakraProvider resetCSS={true}>
-      <div className='flex h-full flex-col gap-5'>
-        <Navbar
-          isMobile={isMobile}
-          refs={refs}
-          isDarkMode={isDarkMode}
-          toggleDarkMode={toggleDarkMode}
-        />
-        {dots}
-        <Home homeRef={refs.home} />
-        <About aboutRef={refs.about} />
-        <Work workRef={refs.work} />
-        <Hobbies hobbyRef={refs.hobbies} />
-        <Footer />
-      </div>
-    </ChakraProvider>
+    <div className='flex h-full flex-col gap-5'>
+      <Navbar
+        links={links}
+        isMobile={isMobile}
+        refs={refs}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
+      {dots}
+      <Home homeRef={refs.home} />
+      <About aboutRef={refs.about} />
+      <Work workRef={refs.work} />
+      <Hobbies hobbyRef={refs.hobbies} />
+      <Footer />
+    </div>
   )
 }

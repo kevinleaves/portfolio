@@ -7,14 +7,13 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import Resume from '@public/docs'
 
 type Props = {
+  links: Links
   refs: {
     navbar: RefObject<HTMLDivElement>
     home: RefObject<HTMLDivElement>
     about: RefObject<HTMLDivElement>
     work: RefObject<HTMLDivElement>
     hobbies: RefObject<HTMLDivElement>
-    // skills: RefObject<HTMLDivElement>
-    // contact: RefObject<HTMLDivElement>
   }
   setMenuClicked: (value: boolean) => void
   menuClicked: boolean
@@ -27,15 +26,8 @@ type Links = {
   [key: string]: string
 }
 
-const links: Links = {
-  about: '/#about',
-  work: '/#work',
-  hobbies: '/#hobbies',
-  // skills: '/#skills',
-  // contact: '/#contact',
-}
-
 export default function MobileNavbar({
+  links,
   refs,
   setMenuClicked,
   menuClicked,
@@ -43,7 +35,7 @@ export default function MobileNavbar({
   isDarkMode,
   toggleDarkMode,
 }: Props) {
-  const handleScroll = (ref: RefObject<null>, link: string) => {
+  const handleScroll = (ref: RefObject<HTMLDivElement>, link: string) => {
     if (ref?.current?.id === 'home' || isMobile) {
       ref?.current?.scrollIntoView({
         block: 'start',
@@ -63,7 +55,7 @@ export default function MobileNavbar({
   }
 
   useEffect(() => {
-    let timeoutId
+    let timeoutId: ReturnType<typeof setTimeout>
     const handleScroll = () => {
       clearTimeout(timeoutId)
       setMenuClicked(false)

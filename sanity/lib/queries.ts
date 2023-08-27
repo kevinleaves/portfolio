@@ -9,15 +9,15 @@ const postFields = groq`
   publishedAt,
   body,
   "slug": slug.current,
-  author->,
-  "authorName": author->{
-    name,
-    image,
-  },
+  "author": author->{name, image},
+  mainImage,
+  "mainImageAsset": mainImage.asset->,
+  "mainImageUrl": mainImage.asset->.url,
+  "authorName": author->.name,
   "postCategory": categories->.title,
 `
 
-export const postsQuery = groq`*[_type == "post" && categories->.title != "Personal"] {${postFields}}`
+export const postsQuery = groq`*[_type == "post" && categories->.title != "Personal"] | order(_updatedAt desc) {${postFields}}`
 
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
