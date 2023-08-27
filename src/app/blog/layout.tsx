@@ -7,7 +7,7 @@ export default function BlogLayout({
   children: React.ReactNode
 }) {
   return (
-    <section className='mx-20'>
+    <section>
       <Navbar links={links} />
       {children}
     </section>
