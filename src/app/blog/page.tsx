@@ -5,10 +5,10 @@ export default async function BlogPage() {
   const allPosts = await clientFetch(postsQuery)
   return (
     <main className='mx-20 flex flex-col'>
-      <h1 className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
-        musings about life, tech, & more
+      <header className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
+        <h1>musings about life, tech, & more</h1>
         <h2>- kevin le</h2>
-      </h1>
+      </header>
       <hr className='my-16 border-2' />
       <PostsList posts={allPosts} />
       <div className='flex h-screen w-full flex-col'>
