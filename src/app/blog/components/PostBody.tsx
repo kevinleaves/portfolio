@@ -15,11 +15,15 @@ import {
 
 import styles from './PostBody.module.css'
 import { SanityImage } from './SanityImage'
+import Code from './Code'
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   types: {
     image: ({ value }) => {
       return <SanityImage {...value} />
+    },
+    code: ({ value }) => {
+      return <Code node={...value} />
     },
   },
   marks: {
