@@ -18,7 +18,7 @@ export default function Navbar({ links }: Props) {
     <nav className='sticky top-0 z-10 mb-4 flex h-16 items-center gap-2 bg-[#27374D]'>
       <div className='mx-20 flex w-full gap-2'>
         {Object.entries(links).map(([key, { link, label, icon }]) => (
-          <Tooltip key={key} label={label}>
+          <Tooltip key={key} label={label} fontSize='lg' placement='bottom'>
             <Link key={key} href={link} className='font-extralight text-white'>
               {icon}
             </Link>
