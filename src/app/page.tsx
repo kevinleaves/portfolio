@@ -8,7 +8,6 @@ import { About } from '@modules/about'
 import { Hobbies } from '@modules/hobbies'
 import { Footer } from '@modules/footer'
 import { useRef } from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import useDarkMode from 'src/app/_hooks/useDarkMode'
 import { useMediaQuery } from 'react-responsive'
@@ -114,22 +113,20 @@ export default function App() {
   )
 
   return (
-    <ChakraProvider resetCSS={true}>
-      <div className='flex h-full flex-col gap-5'>
-        <Navbar
-          links={links}
-          isMobile={isMobile}
-          refs={refs}
-          isDarkMode={isDarkMode}
-          toggleDarkMode={toggleDarkMode}
+    <div className='flex h-full flex-col gap-5'>
+      <Navbar
+        links={links}
+        isMobile={isMobile}
+        refs={refs}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
-        {dots}
-        <Home homeRef={refs.home} />
-        <About aboutRef={refs.about} />
-        <Work workRef={refs.work} />
-        <Hobbies hobbyRef={refs.hobbies} />
-        <Footer />
-      </div>
-    </ChakraProvider>
+      {dots}
+      <Home homeRef={refs.home} />
+      <About aboutRef={refs.about} />
+      <Work workRef={refs.work} />
+      <Hobbies hobbyRef={refs.hobbies} />
+      <Footer />
+    </div>
   )
 }
