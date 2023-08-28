@@ -37,15 +37,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {post.title}
       </h1>
       <PostDate dateString={post._createdAt} />
-      <div className='mb-8 flex justify-center md:mb-16'>
-        <div className='w-11/12 md:w-3/4'>
-          <CoverImage
-            title={post.title}
-            slug={post.slug}
-            image={post.mainImage}
-          />
+      {post.mainImage ? (
+        <div className='mb-8 flex justify-center md:mb-16'>
+          <div className='w-11/12 md:w-3/4'>
+            <CoverImage
+              title={post.title}
+              slug={post.slug}
+              image={post.mainImage}
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
+
       <PostBody content={post.body} />
       <section>
         <hr className='border-accent-2 mb-24 mt-28' />
