@@ -8,6 +8,7 @@ import { Post } from 'types/interfaces'
 import PostBody from '../../components/PostBody'
 import PostPreview from '../../components/PostPreview'
 import CoverImage from '../../components/CoverImage'
+import PostDate from '../../components/PostDate'
 // statically generate routes at build time. aka grab a list of all possible slugs and builds the routes for me.
 
 // /blog/posts/[slug]
@@ -35,6 +36,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <h1 className='mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl'>
         {post.title}
       </h1>
+      <PostDate dateString={post._createdAt} />
       <div className='mb-8 flex justify-center md:mb-16'>
         <div className='w-11/12 md:w-3/4'>
           <CoverImage
