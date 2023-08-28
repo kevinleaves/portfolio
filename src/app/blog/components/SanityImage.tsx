@@ -4,13 +4,15 @@ import Image from 'next/image'
 import { useNextSanityImage } from 'next-sanity-image'
 
 interface Props {
-  asset: SanityImageSource
-  alt: string
-  caption?: string
+  node: {
+    asset: SanityImageSource
+    alt: string
+    caption?: string
+  }
 }
 
-export const SanityImage = (props: Props) => {
-  const { asset, alt, caption } = props
+export const SanityImage = ({ node }: Props) => {
+  const { asset, alt, caption } = node
   const imageProp = useNextSanityImage(getSanityImageConfig(), asset)
   const { loader, src, width, height } = imageProp
   // console.log(loader, 'loader')

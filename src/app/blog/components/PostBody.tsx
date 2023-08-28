@@ -20,10 +20,10 @@ import Code from './Code'
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
   types: {
     image: ({ value }) => {
-      return <SanityImage {...value} />
+      return <SanityImage node={value} />
     },
     code: ({ value }) => {
-      return <Code node={...value} />
+      return <Code node={value} />
     },
   },
   marks: {
