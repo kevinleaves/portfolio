@@ -100,7 +100,7 @@ export default function Navbar({
                 </Link>
                 <Link
                   href={Resume}
-                  download={Resume}
+                  // download={Resume}
                   className=' font-bold hover:text-purple-500'
                   target='_blank'
                 >
