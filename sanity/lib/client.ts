@@ -1,8 +1,7 @@
-import { cache } from 'react'
-import { createClient, type SanityClient } from 'next-sanity'
-import { postSlugsQuery, postAndMoreStoriesQuery } from './queries'
-import { apiVersion, dataset, projectId, useCdn } from '../env'
-import { Post } from 'types/interfaces'
+import {createClient, type SanityClient} from 'next-sanity'
+import {postSlugsQuery, postAndMoreStoriesQuery} from './queries'
+import {apiVersion, dataset, projectId, useCdn} from '../env'
+import {Post} from 'types/interfaces'
 
 const client = createClient({
   apiVersion,
@@ -24,7 +23,7 @@ export const getAllPostsSlugs = () => {
 export async function getPostAndMoreStories(
   client: SanityClient,
   slug: string
-): Promise<{ post: Post; morePosts: Post[] }> {
-  return client.fetch(postAndMoreStoriesQuery, { slug })
+): Promise<{post: Post; morePosts: Post[]}> {
+  return client.fetch(postAndMoreStoriesQuery, {slug})
 }
-export const clientFetch = cache(client.fetch.bind(client))
+export const clientFetch = client.fetch.bind(client)
