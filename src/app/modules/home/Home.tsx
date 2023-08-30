@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, RefObject } from 'react'
-import Image from 'next/image'
 
 const titles = [
   'software engineer',
@@ -68,12 +67,14 @@ export default function Home({ homeRef }: Props): JSX.Element {
           </p>
           and i am a
         </h1>
-        <h3
-          key={title}
-          className='z-0 animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-transparent transition duration-1000 ease-in-out'
-        >
-          {title}
-        </h3>
+        <div className='w-60'>
+          <h3
+            key={title}
+            className='z-0 animate-pulsemore bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-start text-transparent transition duration-1000 ease-in-out'
+          >
+            {title}
+          </h3>
+        </div>
       </div>
     </section>
   )

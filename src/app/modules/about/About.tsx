@@ -50,7 +50,7 @@ export default function About({ aboutRef }: Props) {
         like to contact me about an opportunity, you can find my resume{' '}
         <Link
           href={Resume}
-          download={Resume}
+          // download={Resume}
           className=' text-purple-500 hover:text-purple-900'
           target='_blank'
         >
