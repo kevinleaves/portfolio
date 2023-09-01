@@ -12,16 +12,14 @@ import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook'
 const secret = process.env.NEXT_PUBLIC_WEBHOOK_SECRET ?? ''
 
 export async function POST(request: NextRequest) {
-  // console.log(request, 'request')
   const signature = request.headers.get(SIGNATURE_HEADER_NAME) ?? ''
-  // console.log(request.headers)
-  // console.log(signature, 'sig')
-
   const readableStream = request.body as unknown as NodeJS.ReadableStream
-
   const stringifiedPayload = await readBody(readableStream)
-  // console.log(stringifiedPayload, 'stringifiedPayload')
 
+  /** 
+  if request to this endpoint doesn't come from Sanity CMS, respond with a 401. 
+  otherwise, convert the payload to an HTML string, retrieve the newsletter contact list and send emails through SendGrid service 
+  */
   if (!isValidSignature(stringifiedPayload, signature, secret)) {
     return new NextResponse(
       JSON.stringify({ success: false, message: 'INVALID WEBHOOK SIGNATURE' }),
@@ -37,7 +35,6 @@ export async function POST(request: NextRequest) {
       return { email, name: `${first_name} ${last_name}` }
     })
     const res = await SendGrid(title, htmlString, recipients)
-    // console.log(res, 'res')
     return NextResponse.json(body)
   }
 }
