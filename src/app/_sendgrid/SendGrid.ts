@@ -64,8 +64,6 @@ export async function SendGrid(
     body: JSON.stringify(body),
   }
 
-  console.log(body, 'body')
-
   return fetch(url, options)
 }
 
