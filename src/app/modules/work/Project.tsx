@@ -30,7 +30,7 @@ export default function Project({ project }: Props) {
   const { name, role, description, stack, link, image, link2 } = project
   return (
     <motion.div
-      className='z-0'
+      className='z-0 h-full'
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
