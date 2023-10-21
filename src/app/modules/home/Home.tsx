@@ -10,7 +10,7 @@ export default function Home({ homeRef }: Props): JSX.Element {
       <h1 className='text-2xl font-semibold md:text-3xl'>
         Hi, my name is
         <p className='text-5xl font-extrabold text-blue-300 text-transparent'>
-          Kevin Le.
+          Kevin.
         </p>
         I'm a full stack developer who loves to transform ideas into code.
       </h1>

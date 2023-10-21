@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className='flex min-h-screen min-w-[320px] flex-col bg-lightPrimary dark:bg-darkPrimary dark:text-lightPrimary'>
+      <body className='flex min-h-screen min-w-[320px] flex-col bg-lightPrimary p-8 dark:bg-darkPrimary dark:text-lightPrimary md:px-48 '>
         <Providers>
           {children}
           <Analytics />
