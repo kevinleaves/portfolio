@@ -20,6 +20,11 @@ module.exports = {
         lightPrimary: '#f7f7f7',
         lightSecondary: '#DDDDDD',
       },
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        roboto_mono: ['var(--font-roboto-mono)'],
+        intertight: ['var(--font-intertight)'],
+      },
     },
   },
   plugins: [],
