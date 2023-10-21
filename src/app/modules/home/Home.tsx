@@ -1,17 +1,12 @@
-import React, { RefObject } from 'react'
-
-type Props = {
-  homeRef: RefObject<HTMLElement>
-}
-
-export default function Home({ homeRef }: Props): JSX.Element {
+export default function Home(): JSX.Element {
   return (
-    <section ref={homeRef} className='p-8 md:p-24' id='home'>
+    <section
+      className='border-t-2 border-solid border-black p-8 dark:border-white md:p-24 font-roboto_mono'
+      id='home'
+    >
       <h1 className='text-2xl font-semibold md:text-3xl'>
         Hi, my name is
-        <p className='text-5xl font-extrabold text-blue-300 text-transparent'>
-          Kevin.
-        </p>
+        <p className='text-5xl font-extrabold text-blue-300'>Kevin.</p>
         I'm a full stack developer who loves to transform ideas into code.
       </h1>
     </section>

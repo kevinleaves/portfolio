@@ -1,20 +1,16 @@
-import React, { RefObject } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Resume from '@public/docs'
 
-type Props = {
-  aboutRef: RefObject<HTMLElement>
-}
+type Props = {}
 
-export default function About({ aboutRef }: Props) {
+export default function About({}: Props) {
   return (
     <section
-      ref={aboutRef}
       className='flex flex-col-reverse place-items-center justify-center gap-16 pb-10'
       id='about'
     >
-      <p className='items-center md:w-1/2'>
+      <p className='items-center md:w-1/2 leading-loose'>
         Hey there,
         <br></br>
         <br></br>

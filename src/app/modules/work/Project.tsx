@@ -70,7 +70,7 @@ export default function Project({ project }: Props) {
           </ul>
           <Stack my='5'>
             <p className='text-sm'>{role}</p>
-            <p>{description}</p>
+            <p className='leading-loose'>{description}</p>
           </Stack>
         </CardBody>
         <CardFooter>
