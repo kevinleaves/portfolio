@@ -1,68 +1,34 @@
-import React, { RefObject } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Resume from '@public/docs'
 
-type Props = {
-  aboutRef: RefObject<HTMLElement>
-}
+type Props = {}
 
-export default function About({ aboutRef }: Props) {
+export default function About({}: Props) {
   return (
     <section
-      ref={aboutRef}
-      className='flex flex-col-reverse place-items-center justify-center gap-10 px-2 pb-10 md:flex-row'
+      className='flex flex-col-reverse place-items-center justify-center gap-16 pb-10'
       id='about'
     >
-      <p className='w-9/12 md:w-3/6 lg:w-1/6'>
-        Hey there,
-        <br></br>
-        <br></br>
-        My name is Kevin, and I am a well versed professional with a background
-        in Payroll, HRIS Software, and software engineering. I graduated from
-        the University of California, Irvine with a Bachelor&apos;s degree in
-        Economics in 2017 and worked as a Payroll Analyst in the software
-        industry until 2022.
-        <br></br>
-        <br></br>
-        From the moment I started my professional career, I knew that I wanted
-        to explore the world of programming. I got my start by writing VBA and
-        Python scripts to automate tasks in my previous jobs.
-        <br></br>
-        <br></br>
-        These days, I task myself with the role of using my skills to build
-        software that not only solves problems, but satiates my thirst for
-        knowledge. I love learning new tech, strengthening my current foundation
-        of knowledge, and getting good at whatever I set my mind to.
-        <br></br>
-        <br></br>
-        I'm currently looking for a new Software engineering role, so if
-        you&apos;d like to see the projects I&apos;ve worked on please find my
-        github{' '}
-        <a
-          href='https://github.com/kevinleaves'
-          className=' text-purple-500 hover:text-purple-900'
-          target='_blank'
-        >
-          here{' '}
-        </a>
-        (or scrolling down a little bit more works too 😁), and if you&apos;d
-        like to contact me about an opportunity, you can find my resume{' '}
-        <Link
-          href={Resume}
-          // download={Resume}
-          className=' text-purple-500 hover:text-purple-900'
-          target='_blank'
-        >
-          here.
-        </Link>
+      <p className='items-center md:w-1/2 leading-loose'>
+      Hi there! I'm Kevin. I'm an energetic programmer who loves to build applications and solve problems using code. As a child, I struggled with traditional hands-on engineering, so I never thought I could be an engineer. I discovered the power of coding when I was in 5th grade. I had noticed some of my friends on Myspace had custom image backgrounds in their profiles, and I was curious as to how they did it. I soon after learned to modify HTML to change my profile background just like they did—my first experience of using code to solve a real-life issue.
+<br></br>
+<br></br>
+Fast forward to my freshman year of college, I had successfully enrolled in my first-ever programming class, Intro to Python. I was quickly overwhelmed, and barely scraped by that class with a passing grade, which left me uncertain about a career in programming.
+<br></br>
+<br></br>
+However, my path took a turn when I found myself in the world of Payroll, manually editing Excel spreadsheets daily. It occurred to me that I could use programming to automate these processes! After fiddling around in Visual Basic, I pieced together an Excel sheet template with an automation that would save my team time every day. I would go on to do this in my next role too, but that time using the very same language that caused me problems 6 years prior, Python. In the making of these internal tools, I gained confidence in my programming abilities, and realized that I could write code to solve real-world problems. 18-year-old me would have never seen that coming.
+<br></br>
+<br></br>
+As my curiosity and love for programming grew, I decided to make it my career. I love the creativity that comes with programming, and I love that the field is ever-changing and requires me to keep up-to-date with advancements in programming languages, technologies, and frameworks. In 2023, I graduated from Hack Reactor's intensive Software Engineering Immersive Program, equipping myself with the skills and knowledge required to excel in the field. Currently, I'm actively seeking a full-time role as a Software Engineer or a Technical Support Engineer. My primary objective is to leverage my programming knowledge to tackle real-world problems and contribute to a team or company's success in achieving their objectives.
+
       </p>
       <div className='h-80 w-80 max-w-[95%]'>
         <Image
           src='/images/misc/kevin4.jpeg'
           height={500}
           width={500}
-          className='max-h-sm h-full w-full max-w-sm rounded-full object-cover'
+          className='max-h-sm h-full w-full max-w-sm object-cover'
           alt='kevin_portrait'
         />
       </div>

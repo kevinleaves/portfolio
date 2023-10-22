@@ -30,7 +30,7 @@ export default function Project({ project }: Props) {
   const { name, role, description, stack, link, image, link2 } = project
   return (
     <motion.div
-      className='z-0'
+      className='z-0 h-full'
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
@@ -70,7 +70,7 @@ export default function Project({ project }: Props) {
           </ul>
           <Stack my='5'>
             <p className='text-sm'>{role}</p>
-            <p>{description}</p>
+            <p className='leading-loose'>{description}</p>
           </Stack>
         </CardBody>
         <CardFooter>
