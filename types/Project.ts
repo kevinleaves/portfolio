@@ -8,6 +8,10 @@ export type Project = {
   image: string
   publishedAt: Date
   url: string
+  images: {
+    url: string
+    alt: string
+  }[]
   content: {
     why: PortableTextBlock[]
     description: PortableTextBlock[]

@@ -39,5 +39,10 @@ export const postAndMoreStoriesQuery = groq`
   }
 }`
 
-export const getProjectsQuery = groq`*[_type == 'post']`
-export const getProjectBySlugQuery = groq`*[_type == 'project' && slug.current == $slug][0]`
+export const getProjectsQuery = groq`*[_type == 'project']`
+export const getProjectBySlugQuery = groq`*[_type == 'project' && slug.current == $slug][0]{...,
+  'images': images[]{
+    'url': asset->url,
+    'alt': alt
+  }
+}`
