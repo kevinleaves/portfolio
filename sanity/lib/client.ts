@@ -1,7 +1,13 @@
 import {createClient, type SanityClient} from 'next-sanity'
-import {postSlugsQuery, postAndMoreStoriesQuery} from './queries'
+import {
+  postSlugsQuery,
+  postAndMoreStoriesQuery,
+  getProjectBySlugQuery,
+  getProjectsQuery,
+} from './queries'
 import {apiVersion, dataset, projectId, useCdn} from '../env'
 import {Post} from 'types/interfaces'
+import {Project} from 'types/Project'
 
 const client = createClient({
   apiVersion,
@@ -27,3 +33,11 @@ export async function getPostAndMoreStories(
   return client.fetch(postAndMoreStoriesQuery, {slug})
 }
 export const clientFetch = client.fetch.bind(client)
+
+export async function getProjects(): Promise<Project[]> {
+  return client.fetch(getProjectsQuery)
+}
+
+export async function getProject(slug: string): Promise<Project> {
+  return client.fetch(getProjectBySlugQuery, {slug})
+}

@@ -1,4 +1,4 @@
-import { groq } from 'next-sanity'
+import {groq} from 'next-sanity'
 
 const postFields = groq`
   _id,
@@ -38,3 +38,6 @@ export const postAndMoreStoriesQuery = groq`
     ${postFields}
   }
 }`
+
+export const getProjectsQuery = groq`*[_type == 'post']`
+export const getProjectBySlugQuery = groq`*[_type == 'project' && slug.current == $slug][0]`
