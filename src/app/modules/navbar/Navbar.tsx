@@ -6,8 +6,8 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import Resume from '@public/docs'
 
 type Props = {
-  isDarkMode: boolean
-  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+  isDarkMode?: boolean
+  toggleDarkMode?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function Navbar({
@@ -17,7 +17,7 @@ export default function Navbar({
   return (
     <>
       <header
-        className='sticky top-0 z-10 flex justify-between py-2 px-2 text-2xl backdrop-blur-md backdrop-opacity-95 backdrop-filter'
+        className='sticky top-0 z-10 flex justify-between py-2 px-2 text-2xl bg-lightPrimary'
         id='navbar'
       >
         <Link href={'/'}>
@@ -42,14 +42,14 @@ export default function Navbar({
                 resume
               </Link>
             </div>
-            <IconButton
+            {/* <IconButton
               aria-label='darkmode toggle'
               icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
               onClick={() => toggleDarkMode(!isDarkMode)}
               size='lg'
               variant='ghost'
               fontSize='25px'
-            />
+            /> */}
           </div>
         </nav>
       </header>
