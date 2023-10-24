@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { LinkIcon } from '@chakra-ui/icons'
+import type { Project } from 'types/Project'
+
 import {
   Card,
   CardHeader,
@@ -16,49 +18,50 @@ import {
 } from '@chakra-ui/react'
 
 type Props = {
-  project: {
-    id: number
-    name: string
-    role: string
-    description: string
-    stack: Array<string>
-    link: string
-    image: string
-    link2?: string
-  }
+  project: Project
 }
+// const baseURL = 'https://kevinle.xyz'
+const baseURL = 'http://localhost:3000'
 
-export default function Project({ project }: Props) {
-  const { name, role, description, stack, link, image, link2 } = project
+export default function ProjectPreview({ project }: Props) {
+  const {
+    title,
+    slug,
+    image,
+    mainImage,
+    // content: { description },
+  } = project
   return (
     <motion.div
       className='z-0 h-full'
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5, type: 'spring' }}
     >
-      <Card className='h-full max-w-sm' size='sm'>
-        <CardHeader>
-          <Heading size='md' variant='underline' fontStyle={'italic'}>
-            {name}
-          </Heading>
-        </CardHeader>
+      <Card className='h-full max-w-4xl' size='sm'>
         <CardBody>
           <Image
             objectFit='cover'
             boxSize={'30rem'}
-            src={`/images/projects/${image}`}
-            alt={name}
+            src={`${mainImage.url}`}
+            alt={`${mainImage.alt}`}
             borderRadius='lg'
           />
+          <Heading size='md' variant='underline' className='pt-4'>
+            {title}
+          </Heading>
           <ul className='flex justify-center gap-5'>
-            <a href={link} target='blank' className='flex justify-center pt-6'>
+            <a
+              href={`${baseURL}/${slug.current}`}
+              target='blank'
+              className='flex justify-center pt-6'
+            >
               <Image
                 src='/images/logos/github-mark.png'
                 boxSize={'2rem'}
                 alt='social_logo'
               />
             </a>
-            {link2 ? (
+            {/* {link2 ? (
               <a
                 href={link2}
                 target='blank'
@@ -68,14 +71,14 @@ export default function Project({ project }: Props) {
                   <LinkIcon className='h-full w-full' />
                 </Box>
               </a>
-            ) : null}
+            ) : null} */}
           </ul>
           <Stack my='5'>
-            <p className='text-sm'>{role}</p>
-            <p className='leading-loose'>{description}</p>
+            {/* <p className='text-sm'>{role}</p> */}
+            <p className='leading-loose'>{'not dynamic'}</p>
           </Stack>
         </CardBody>
-        <CardFooter>
+        {/* <CardFooter>
           <ul className='flex flex-wrap gap-2'>
             {stack.map((technology, index) => (
               <Badge py='1' px='2' key={index}>
@@ -83,7 +86,7 @@ export default function Project({ project }: Props) {
               </Badge>
             ))}
           </ul>
-        </CardFooter>
+        </CardFooter> */}
       </Card>
     </motion.div>
   )

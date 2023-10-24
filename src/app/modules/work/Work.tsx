@@ -1,10 +1,14 @@
+import { clientFetch } from '@sanity/lib/client'
+import { getProjectsQuery } from '@sanity/lib/queries'
 import ProjectsList from './ProjectsList'
-
 type Props = {}
 
-import { projects } from '@modules/work'
 
-export default function Work({}: Props) {
+export default async function Work({}: Props) {
+
+  const projects = await clientFetch(getProjectsQuery, {}, { next: { revalidate: 30 } })
+
+
   return (
     <section
       id='work'

@@ -1,27 +1,17 @@
-import { Project } from '@modules/work'
+import { ProjectPreview } from '@modules/work'
+import type { Project } from 'types/Project'
+
 
 interface Props {
-  projects: {
-    id: number
-    name: string
-    role: string
-    description: string
-    stack: string[]
-    link: string
-    link2?: string
-    image: string
-  }[]
+  projects: Array<Project>
 }
 
 export default function ProjectsList({ projects }: Props) {
   return (
     <ul className='md: flex h-full w-full flex-col flex-wrap place-items-center gap-4 md:grid md:grid-cols-2 md:gap-y-16'>
       {projects
-        ?.sort((a, b) => {
-          return b.id - a.id
-        })
         .map((project) => (
-          <Project key={project.id} project={project} />
+          <ProjectPreview key={project._id} project={project} />
         ))}
     </ul>
   )

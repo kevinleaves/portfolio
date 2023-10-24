@@ -4,9 +4,13 @@ export type Project = {
   _id: string
   _createdAt: Date
   title: string
-  slug: string
+  slug: { current: string }
   image: string
   publishedAt: Date
+  mainImage: {
+    url: string
+    alt: string
+  }
   url: string
   images: {
     url: string
