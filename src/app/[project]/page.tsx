@@ -11,8 +11,8 @@ export default async function ProjectPage({ params }: Props) {
   const project = await getProject(slug)
   return (
     <>
-      <div>{project.title}</div>
-      <p>{project.url}</p>
+      <div>{project?.title}</div>
+      <p>{project?.url}</p>
       {/* can't style portabletext directly. have to wrap the component and style that */}
       <p className=''>
         <PortableText value={project.content?.why} />
@@ -23,8 +23,8 @@ export default async function ProjectPage({ params }: Props) {
       <PortableText value={project.content?.reflection} />
 
       <Image
-        src={project.images[1].url}
-        alt={project.images[1].alt}
+        src={project?.images[1].url}
+        alt={project?.images[1].alt}
         height={500}
         width={500}
       />
