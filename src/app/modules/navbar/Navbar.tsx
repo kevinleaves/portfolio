@@ -3,17 +3,19 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconButton } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import Resume from '@public/docs'
+
+import Resume from './Resume'
 
 type Props = {
-  isDarkMode?: boolean
-  toggleDarkMode?: React.Dispatch<React.SetStateAction<boolean>>
+  isDarkMode: boolean
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function Navbar({
   isDarkMode,
   toggleDarkMode,
 }: Props): JSX.Element {
+
   return (
     <>
       <header
@@ -34,13 +36,7 @@ export default function Navbar({
               <Link href={'/blog'} className=' hover:text-purple-500'>
                 blog
               </Link>
-              <Link
-                href={Resume}
-                className='hover:text-purple-500'
-                target='_blank'
-              >
-                resume
-              </Link>
+        <Resume />
             </div>
             {/* <IconButton
               aria-label='darkmode toggle'
