@@ -1,5 +1,5 @@
 import { clientFetch } from '@sanity/lib/client'
-import { getProjectsQuery } from '@sanity/lib/queries'
+import { getProjectsQuery } from '@sanity/lib/portfolioQueries'
 import ProjectsList from './ProjectsList'
 type Props = {}
 

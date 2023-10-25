@@ -1,5 +1,5 @@
 import { clientFetch } from '@sanity/lib/client'
-import { resumeQuery } from '@sanity/lib/queries'
+import { resumeQuery } from '@sanity/lib/portfolioQueries'
 import Link from 'next/link'
 
 interface Props {

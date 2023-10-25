@@ -1,11 +1,8 @@
 import {createClient, type SanityClient} from 'next-sanity'
-import {
-  postSlugsQuery,
-  postAndMoreStoriesQuery,
-  getProjectBySlugQuery,
-  getProjectsQuery,
-  getProjectsSlugsQuery,
-} from './queries'
+import {postSlugsQuery, postAndMoreStoriesQuery} from './blogQueries'
+
+import {getProjectBySlugQuery, getProjectsQuery, getProjectsSlugsQuery} from './portfolioQueries'
+
 import {apiVersion, dataset, projectId, useCdn} from '../env'
 import {Post} from 'types/interfaces'
 import {Project} from 'types/Project'
