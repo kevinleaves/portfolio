@@ -51,3 +51,5 @@ export const getProjectBySlugQuery = groq`*[_type == 'project' && slug.current =
     'alt': alt
   }
 }`
+
+export const resumeQuery = groq`*[_type == "resume"][0]{"url": resume.asset->url}`
