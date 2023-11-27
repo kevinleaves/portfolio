@@ -23,6 +23,28 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/spotifygpt',
+        destination:
+          'https://kevinle.notion.site/SpotifyGPT-2ccf9b847d6248adafb40887f19dad03?pvs=4',
+        permanent: true,
+      },
+      {
+        source: '/system-design-capstone',
+        destination:
+          'https://kevinle.notion.site/System-Design-Capstone-edbbc88d36aa4f9abc6c01855076f110?pvs=4',
+        permanent: true,
+      },
+      {
+        source: '/pomodoro',
+        destination:
+          'https://kevinle.notion.site/Pomodoro-7c1b02980cfd49be83c62b8ff38f7503?pvs=4',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

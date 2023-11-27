@@ -9,9 +9,9 @@ export default function BlogLayout({
 }) {
   return (
     <section>
-      <Navbar>
+      {/* <Navbar>
         <Links links={blogLinks} />
-      </Navbar>
+      </Navbar> */}
       {children}
     </section>
   )

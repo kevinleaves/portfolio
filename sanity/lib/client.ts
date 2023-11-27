@@ -1,7 +1,11 @@
 import {createClient, type SanityClient} from 'next-sanity'
-import {postSlugsQuery, postAndMoreStoriesQuery} from './queries'
+import {postSlugsQuery, postAndMoreStoriesQuery} from './blogQueries'
+
+import {getProjectBySlugQuery, getProjectsQuery, getProjectsSlugsQuery} from './portfolioQueries'
+
 import {apiVersion, dataset, projectId, useCdn} from '../env'
 import {Post} from 'types/interfaces'
+import {Project} from 'types/Project'
 
 const client = createClient({
   apiVersion,
@@ -13,6 +17,8 @@ const client = createClient({
 export function getClient() {
   return client
 }
+
+export const clientFetch = client.fetch.bind(client)
 
 export const getSanityImageConfig = () => getClient()
 
@@ -26,4 +32,15 @@ export async function getPostAndMoreStories(
 ): Promise<{post: Post; morePosts: Post[]}> {
   return client.fetch(postAndMoreStoriesQuery, {slug})
 }
-export const clientFetch = client.fetch.bind(client)
+
+export async function getProjects(): Promise<Project[]> {
+  return client.fetch(getProjectsQuery)
+}
+
+export async function getProject(slug: string): Promise<Project> {
+  return client.fetch(getProjectBySlugQuery, {slug})
+}
+
+export const getAllProjectsSlugs = async () => {
+  return await clientFetch(getProjectsSlugsQuery)
+}

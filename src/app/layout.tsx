@@ -2,6 +2,8 @@ import './globals.css'
 import { Providers } from './providers'
 import { Analytics } from '@vercel/analytics/react'
 import { Inter, Inter_Tight, Roboto_Mono } from 'next/font/google'
+import { Navbar } from '@modules/navbar'
+
 
 export const metadata = {
   icons: {
@@ -28,8 +30,10 @@ export default async function RootLayout({
 }) {
   return (
     <html lang='en' className={`${inter.variable} ${roboto_mono.variable} ${inter_tight.variable}`}>
+
       <body className='p flex min-h-screen min-w-[320px] flex-col bg-lightPrimary p-8 dark:bg-darkPrimary dark:text-lightPrimary md:px-24 font-intertight'>
         <Providers>
+        <Navbar />
           {children}
           <Analytics />
         </Providers>

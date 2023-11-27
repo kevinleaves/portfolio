@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconButton } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import Resume from '@public/docs'
+
+import Resume from './Resume'
 
 type Props = {
   isDarkMode: boolean
@@ -14,10 +15,11 @@ export default function Navbar({
   isDarkMode,
   toggleDarkMode,
 }: Props): JSX.Element {
+
   return (
     <>
       <header
-        className='sticky top-0 z-10 flex justify-between py-2 px-2 text-2xl backdrop-blur-md backdrop-opacity-95 backdrop-filter'
+        className='sticky top-0 z-10 flex justify-between py-2 px-2 text-2xl bg-lightPrimary'
         id='navbar'
       >
         <Link href={'/'}>
@@ -34,22 +36,16 @@ export default function Navbar({
               <Link href={'/blog'} className=' hover:text-purple-500'>
                 blog
               </Link>
-              <Link
-                href={Resume}
-                className='hover:text-purple-500'
-                target='_blank'
-              >
-                resume
-              </Link>
+        <Resume />
             </div>
-            <IconButton
+            {/* <IconButton
               aria-label='darkmode toggle'
               icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
               onClick={() => toggleDarkMode(!isDarkMode)}
               size='lg'
               variant='ghost'
               fontSize='25px'
-            />
+            /> */}
           </div>
         </nav>
       </header>
