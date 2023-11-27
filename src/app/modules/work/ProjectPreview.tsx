@@ -1,27 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { LinkIcon } from '@chakra-ui/icons'
 import type { Project } from 'types/Project'
 
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Divider,
-  CardFooter,
-  Image,
-  Stack,
-  Badge,
-  Heading,
-  Box,
-} from '@chakra-ui/react'
+import { Card, CardBody, Image, Heading, Flex } from '@chakra-ui/react'
 
 type Props = {
   project: Project
 }
-// const baseURL = 'https://kevinle.xyz'
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://kevinle.xyz'
+// const baseURL = 'http://localhost:3000'
 
 export default function ProjectPreview({ project }: Props) {
   const {
@@ -39,54 +27,40 @@ export default function ProjectPreview({ project }: Props) {
     >
       <Card className='h-full max-w-4xl' size='sm'>
         <CardBody>
-          <Image
-            objectFit='cover'
-            boxSize={'30rem'}
-            src={`${mainImage.url}`}
-            alt={`${mainImage.alt}`}
-            borderRadius='lg'
-          />
-          <Heading size='md' variant='underline' className='pt-4'>
-            {title}
-          </Heading>
-          <ul className='flex justify-center gap-5'>
-            <a
-              href={`${baseURL}/${slug.current}`}
-              target='blank'
-              className='flex justify-center pt-6'
-            >
-              <Image
-                src='/images/logos/github-mark.png'
-                boxSize={'2rem'}
-                alt='social_logo'
-              />
-            </a>
-            {/* {link2 ? (
+          <Flex direction={'column'} align={'center'}>
+            <Image
+              objectFit='cover'
+              boxSize={'35rem'}
+              src={`${mainImage.url}`}
+              alt={`${mainImage.alt}`}
+              borderRadius='lg'
+            />
+            <Heading size='md' variant='underline' className='py-4'>
+              {title}
+            </Heading>
+            <p className='leading-loose'>{project.previewDescription}</p>
+            <ul className='flex items-center justify-center gap-5'>
               <a
-                href={link2}
+                href={`${baseURL}/${slug.current}`}
+                target='blank'
+                className='flex justify-center pt-6 text-sm font-semibold after:content-["↗"] hover:underline'
+              >
+                View Project
+              </a>
+              <a
+                href={project.githubURL}
                 target='blank'
                 className='flex justify-center pt-6'
               >
-                <Box boxSize={'2rem'} onClick={link2}>
-                  <LinkIcon className='h-full w-full' />
-                </Box>
+                <Image
+                  src='/images/logos/github-mark.png'
+                  boxSize={'2rem'}
+                  alt='social_logo'
+                />
               </a>
-            ) : null} */}
-          </ul>
-          <Stack my='5'>
-            {/* <p className='text-sm'>{role}</p> */}
-            <p className='leading-loose'>{'not dynamic'}</p>
-          </Stack>
+            </ul>
+          </Flex>
         </CardBody>
-        {/* <CardFooter>
-          <ul className='flex flex-wrap gap-2'>
-            {stack.map((technology, index) => (
-              <Badge py='1' px='2' key={index}>
-                {technology}
-              </Badge>
-            ))}
-          </ul>
-        </CardFooter> */}
       </Card>
     </motion.div>
   )

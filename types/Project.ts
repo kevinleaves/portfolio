@@ -11,7 +11,9 @@ export type Project = {
     url: string
     alt: string
   }
+  previewDescription: string
   url: string
+  githubURL: string
   images: {
     url: string
     alt: string

@@ -19,6 +19,13 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    defineField({name: 'url', type: 'url', title: 'Live URL'}),
+    defineField({name: 'githubURL', type: 'url', title: 'GitHub URL'}),
+    defineField({
+      name: 'previewDescription',
+      title: 'previewDescription',
+      type: 'string',
+    }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
@@ -60,7 +67,6 @@ export default defineType({
       type: 'datetime',
       initialValue: new Date().toISOString(),
     }),
-    defineField({name: 'url', type: 'url', title: 'URL'}),
     defineField({
       name: 'content',
       title: 'Content',
