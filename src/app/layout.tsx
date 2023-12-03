@@ -3,7 +3,7 @@ import { Providers } from './providers'
 import { Analytics } from '@vercel/analytics/react'
 import { Inter, Inter_Tight, Roboto_Mono } from 'next/font/google'
 import { Navbar } from '@modules/navbar'
-
+import { Footer } from '@modules/footer'
 
 export const metadata = {
   icons: {
@@ -13,15 +13,23 @@ export const metadata = {
   description: 'Porfolio for Kevin Le, a Full Stack Software Engineer',
 }
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-roboto-mono'
+  variable: '--font-roboto-mono',
 })
 
-const inter_tight = Inter_Tight({ subsets: ['latin'], display: 'swap', variable: '--font-intertight' })
+const inter_tight = Inter_Tight({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-intertight',
+})
 
 export default async function RootLayout({
   children,
@@ -29,12 +37,15 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={`${inter.variable} ${roboto_mono.variable} ${inter_tight.variable}`}>
-
-      <body className='p flex min-h-screen min-w-[320px] flex-col bg-lightPrimary p-8 dark:bg-darkPrimary dark:text-lightPrimary md:px-24 font-intertight'>
+    <html
+      lang='en'
+      className={`${inter.variable} ${roboto_mono.variable} ${inter_tight.variable}`}
+    >
+      <body className='p flex min-h-screen min-w-[320px] flex-col bg-lightPrimary p-8 font-intertight dark:bg-darkPrimary dark:text-lightPrimary md:px-24'>
         <Providers>
-        <Navbar />
+          <Navbar />
           {children}
+          <Footer />
           <Analytics />
         </Providers>
       </body>

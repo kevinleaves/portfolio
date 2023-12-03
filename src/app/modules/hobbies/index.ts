@@ -1,1 +1,1 @@
-export { default as Hobbies } from './Hobbies'
+export { default as SoundCloud } from './Soundcloud'

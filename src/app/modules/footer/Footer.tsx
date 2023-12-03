@@ -21,19 +21,21 @@ export default function Footer() {
   }
 
   return (
-    <section id='footer'>
-      <div className='flex h-32 justify-center gap-5'>
+    <section id='footer' className='mt-16 border-t-2 border-solid pt-8'>
+      <div className='flex justify-center gap-5'>
         {Object.entries(socials).map(([key, { logo, link }]) => {
           return (
             <a href={link} key={key} target='blank'>
-              <Image src={logo} height={40} width={40} alt='social_logo' />
+              <Image
+                src={logo}
+                height={40}
+                width={40}
+                alt='social_logo'
+                className='rounded-3xl transition-all hover:scale-125'
+              />
             </a>
           )
         })}
-        <iframe
-          src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fkevinxle&color=black_white&size=40'
-          style={{ width: '40px', height: '40px' }}
-        ></iframe>
       </div>
     </section>
   )
