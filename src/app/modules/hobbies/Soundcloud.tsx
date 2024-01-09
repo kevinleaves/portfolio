@@ -6,6 +6,7 @@ export default function SoundCloud() {
       width='100%'
       height='400'
       allow='autoplay'
+      loading='lazy'
       src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1593491686&color=%23b093e1&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true'
     ></iframe>
   )

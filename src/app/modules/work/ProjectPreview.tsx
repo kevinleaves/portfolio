@@ -22,8 +22,8 @@ export default function ProjectPreview({ project }: Props) {
   return (
     <motion.div
       className='z-0 h-full'
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.5, type: 'spring' }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
     >
       <Card className='h-full max-w-4xl' size='sm'>
         <CardBody>
@@ -43,14 +43,14 @@ export default function ProjectPreview({ project }: Props) {
               <a
                 href={`${baseURL}/${slug.current}`}
                 target='blank'
-                className='flex justify-center pt-6 text-sm font-semibold after:content-["↗"] hover:underline'
+                className='after:content-["↗"] flex justify-center pt-6 text-sm font-semibold hover:underline'
               >
                 View Project
               </a>
               <a
                 href={project.githubURL}
                 target='blank'
-                className='flex justify-center pt-6'
+                className='flex justify-center pt-6 transition-all hover:-translate-y-2'
               >
                 <Image
                   src='/images/logos/github-mark.png'
