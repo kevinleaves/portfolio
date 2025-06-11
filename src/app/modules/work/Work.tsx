@@ -13,7 +13,7 @@ export default async function Work({}: Props) {
   return (
     <section
       id='work'
-      className='md:max-w-[100%] flex flex-col items-center justify-center'
+      className='flex flex-col items-center justify-center md:max-w-full'
     >
       <h2 className='text-2xl font-medium md:text-3xl'>
         What I've been working on

@@ -9,7 +9,7 @@ export default function About({}: Props) {
       className='flex flex-col-reverse place-items-center justify-center gap-16 pb-10'
       id='about'
     >
-      <p className='md:w-1/2 items-center leading-loose'>
+      <p className='items-center leading-loose md:w-1/2'>
         Hi there! I'm Kevin. I'm an energetic programmer who loves to build
         applications and solve problems using code. I discovered the power of
         coding when I was in 5th grade. I had noticed some of my friends on
