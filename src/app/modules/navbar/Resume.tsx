@@ -15,13 +15,13 @@ export default async function Resume({}: Props) {
   )
 
   return (
-    <div className='group relative self-center '>
-      <Link href={resume} className='hover:text-purple-500' target='_blank'>
-        <MdOutlineContactPage />
-      </Link>
-      <span className='pointer-events-none absolute -left-8 top-12 rounded-xl bg-black p-4 text-sm font-semibold text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100'>
-        Take a look at my resume!
-      </span>
+    <div className='group relative self-center'>
+      <div className='flex items-center gap-2 text-lg hover:text-purple-500!'>
+        <Link href={resume} target='_blank' className='contents'>
+          <MdOutlineContactPage />
+          <p className='text-lg'>Resume</p>
+        </Link>
+      </div>
     </div>
   )
 }

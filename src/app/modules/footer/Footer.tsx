@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Resume from '@modules/navbar/Resume'
 
 export default function Footer() {
   type Social = {
@@ -21,21 +22,22 @@ export default function Footer() {
   }
 
   return (
-    <section id='footer' className='mt-16 border-t-2 border-solid pt-8'>
-      <div className='flex justify-center gap-5'>
+    <section id='footer' className='pt-8'>
+      <div className='flex items-center justify-center gap-5'>
         {Object.entries(socials).map(([key, { logo, link }]) => {
           return (
             <a href={link} key={key} target='blank'>
               <Image
                 src={logo}
-                height={40}
-                width={40}
+                height={24}
+                width={24}
                 alt='social_logo'
-                className='rounded-3xl transition-all hover:scale-125'
+                className='rounded transition-all hover:scale-125'
               />
             </a>
           )
         })}
+        <Resume />
       </div>
     </section>
   )

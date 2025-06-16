@@ -1,12 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    @apply text-darkPrimary;
-  }
-}
+@import 'tailwindcss';
 
 :root {
   --foreground-rgb: 0, 0, 0;

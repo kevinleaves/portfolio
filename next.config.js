@@ -26,7 +26,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/spotifygpt',
+        source: '/stats4spotify',
         destination:
           'https://kevinle.notion.site/SpotifyGPT-2ccf9b847d6248adafb40887f19dad03?pvs=4',
         permanent: true,
