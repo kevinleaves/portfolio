@@ -41,13 +41,15 @@ export default async function RootLayout({
       lang='en'
       className={`${inter.variable} ${roboto_mono.variable} ${inter_tight.variable}`}
     >
-      <body className='p flex min-h-screen min-w-[320px] flex-col bg-lightPrimary p-8 font-intertight dark:bg-darkPrimary dark:text-lightPrimary md:px-24'>
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-        </Providers>
+      <body className='font-intertight'>
+        <div className='mx-auto min-h-screen max-w-3xl min-w-[320px] flex-col gap-8'>
+          <Providers>
+            <Navbar />
+            <div className='flex flex-col gap-8'>{children}</div>
+            <Footer />
+            <Analytics />
+          </Providers>
+        </div>
       </body>
     </html>
   )
