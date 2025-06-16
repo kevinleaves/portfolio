@@ -10,22 +10,20 @@ export default function About({}: Props) {
       id='about'
     >
       <div className='h-40 w-40 overflow-hidden rounded-md'>
-        <div className='h-full w-full'>
-          <Image
-            src='/images/misc/kevin4.jpeg'
-            height={160}
-            width={160}
-            className='h-full w-full scale-200 object-cover'
-            alt='kevin_portrait'
-            priority
-          />
-        </div>
+        <Image
+          src='/images/misc/kevin4.jpeg'
+          height={160}
+          width={160}
+          className='origin-[47%_35%] scale-400 object-cover md:origin-center md:scale-200'
+          alt='kevin_portrait'
+          priority
+        />
       </div>
       <div className='flex flex-col'>
-        <h1 className='text-5xl! font-semibold! text-neutral-900 md:text-3xl'>
+        <h1 className='text-2xl! font-semibold! text-neutral-900 md:text-5xl!'>
           hey, i'm kevin!
         </h1>
-        <p className='text-lg leading-loose text-neutral-900'>
+        <p className='text-base! leading-loose text-neutral-900 md:text-lg!'>
           I'm a full stack developer from Garden Grove, California.
         </p>
         <Footer />

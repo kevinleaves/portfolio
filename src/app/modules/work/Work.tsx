@@ -15,10 +15,10 @@ export default async function Work({}: Props) {
       id='work'
       className='flex flex-col items-center justify-center md:max-w-full'
     >
-      <h2 className='text-2xl! font-bold! text-neutral-900'>
+      <h2 className='text-lg! font-bold! text-neutral-900 md:text-2xl!'>
         what I've been working on
       </h2>
-      <p className='py-4 leading-loose'>
+      <p className='py-4 text-sm! leading-loose md:text-base!'>
         I like to always have a project in the works, and am usually looking out
         for ways to learn something new by building applications that interest
         me. Take a look at some of the projects I've been working on.
